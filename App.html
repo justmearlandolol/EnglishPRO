@@ -1,0 +1,3637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook Doodle Study • Irregular Verbs 1-52</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-paper: #fffcf8;
+            --ink-black: #222222;
+            --ink-grey: #555555;
+            --line-blue: #e0e6ed;
+            --line-red: #f28b82;
+            --stabilo-yellow: #fff59d;
+            --stabilo-green: #c8e6c9;
+            --stabilo-blue: #bbdefb;
+            --stabilo-pink: #f8bbd0;
+            --border-doodle: 2px solid #222222;
+            --shadow-marker: 3px 3px 0px #222222;
+            --shadow-marker-lg: 5px 5px 0px #222222;
+            --font-hand: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-hand);
+            background-color: var(--bg-paper);
+            background-image: 
+                linear-gradient(to right, transparent 56px, var(--line-red) 56px, var(--line-red) 58px, transparent 58px),
+                linear-gradient(to bottom, var(--line-blue) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 32px;
+            color: var(--ink-black);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .doodle-box {
+            background: #ffffff;
+            border: var(--border-doodle);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            box-shadow: var(--shadow-marker);
+            padding: 24px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .doodle-box-alt {
+            background: #ffffff;
+            border: var(--border-doodle);
+            border-radius: 15px 255px 15px 225px/225px 15px 255px 15px;
+            box-shadow: var(--shadow-marker);
+            padding: 24px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .sticky-note {
+            background: #fffde7;
+            border: 1px solid #dcd086;
+            border-radius: 2px 6px 3px 5px;
+            box-shadow: 3px 4px 10px rgba(0,0,0,0.12);
+            position: relative;
+            padding: 22px;
+            margin: 18px 0;
+            transform: rotate(-0.7deg);
+            transition: transform 0.2s ease;
+        }
+
+        .sticky-note:hover {
+            transform: rotate(0deg) scale(1.01);
+        }
+
+        .sticky-note::after {
+            content: "";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%) rotate(2deg);
+            width: 85px;
+            height: 22px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px dashed #999999;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+
+        .sticky-note.green { background: #e8f5e9; border-color: #a5d6a7; }
+        .sticky-note.blue { background: #e1f5fe; border-color: #81d4fa; }
+        .sticky-note.pink { background: #fce4ec; border-color: #f48fb1; }
+
+        .stabilo-yellow { background-color: var(--stabilo-yellow); padding: 2px 6px; border-radius: 4px; }
+        .stabilo-green { background-color: var(--stabilo-green); padding: 2px 6px; border-radius: 4px; }
+        .stabilo-blue { background-color: var(--stabilo-blue); padding: 2px 6px; border-radius: 4px; }
+        .stabilo-pink { background-color: var(--stabilo-pink); padding: 2px 6px; border-radius: 4px; }
+
+        .doodle-btn {
+            font-family: var(--font-hand);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ink-black);
+            background: #ffffff;
+            border: var(--border-doodle);
+            border-radius: 12px 255px 14px 225px/225px 14px 255px 12px;
+            box-shadow: 2px 2px 0px #222222;
+            padding: 10px 18px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.15s ease;
+            text-decoration: none;
+            user-select: none;
+        }
+
+        .doodle-btn:hover {
+            transform: translateY(-2px) rotate(-1deg);
+            box-shadow: 4px 4px 0px #222222;
+            background-color: var(--stabilo-yellow);
+        }
+
+        .doodle-btn:active {
+            transform: translateY(1px);
+            box-shadow: 1px 1px 0px #222222;
+        }
+
+        .doodle-btn.primary { background-color: var(--stabilo-yellow); }
+        .doodle-btn.success { background-color: var(--stabilo-green); }
+        .doodle-btn.info { background-color: var(--stabilo-blue); }
+        .doodle-btn.danger { background-color: var(--stabilo-pink); }
+        .doodle-btn.active {
+            background-color: var(--ink-black);
+            color: #ffffff;
+        }
+
+        .doodle-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 2px 2px 0px #222222;
+        }
+
+        .doodle-input, .doodle-select {
+            font-family: var(--font-hand);
+            font-size: 1rem;
+            color: var(--ink-black);
+            background: #ffffff;
+            border: var(--border-doodle);
+            border-radius: 255px 10px 225px 10px/10px 225px 10px 255px;
+            padding: 10px 16px;
+            box-shadow: 2px 2px 0px #222222;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .doodle-input:focus, .doodle-select:focus {
+            box-shadow: 4px 4px 0px #222222;
+            background: #fffde7;
+        }
+
+        .svg-icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        header {
+            background: rgba(255, 252, 248, 0.95);
+            border-bottom: 3px solid #222222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 0px rgba(34,34,34,0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            max-width: 1150px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--ink-black);
+        }
+
+        .logo-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            transform: rotate(-1deg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .section-view {
+            display: none;
+            padding-top: 24px;
+            animation: pageTurn 0.35s ease-out;
+        }
+
+        .section-view.active {
+            display: block;
+        }
+
+        @keyframes pageTurn {
+            0% {
+                opacity: 0;
+                transform: translateY(12px) rotate(-0.5deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+            border-bottom: 2px dashed #666666;
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 6px;
+            background: var(--stabilo-yellow);
+            z-index: -1;
+            transform: rotate(-1deg);
+        }
+
+        .hero-banner {
+            text-align: center;
+            padding: 30px 20px;
+            background: #fff;
+            border: var(--border-doodle);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            box-shadow: var(--shadow-marker-lg);
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--ink-grey);
+            margin-bottom: 20px;
+        }
+
+        .progress-wrapper {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .progress-bar-doodle {
+            width: 100%;
+            height: 28px;
+            background: #ffffff;
+            border: 2px solid #222222;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 2px 2px 0px #222222;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--stabilo-green);
+            width: 0%;
+            transition: width 0.6s ease;
+            border-right: 2px solid #222222;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .nav-card {
+            background: #ffffff;
+            border: var(--border-doodle);
+            border-radius: 15px 255px 15px 225px/225px 15px 255px 15px;
+            box-shadow: var(--shadow-marker);
+            padding: 22px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-4px) rotate(-1deg);
+            box-shadow: var(--shadow-marker-lg);
+            background: #fffde7;
+        }
+
+        .nav-card-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-card-desc {
+            font-size: 0.95rem;
+            color: var(--ink-grey);
+            margin-bottom: 16px;
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .target-item {
+            border: 2px dashed #222222;
+            border-radius: 12px;
+            padding: 14px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .target-num {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-top: 6px;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .toolbar-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+            flex-grow: 1;
+            min-width: 220px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding-left: 42px;
+        }
+
+        .search-box .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777777;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            border: var(--border-doodle);
+            border-radius: 12px;
+            box-shadow: var(--shadow-marker);
+            background: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .vocab-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .vocab-table th {
+            background-color: #f7f1e5;
+            border-bottom: 2px solid #222222;
+            padding: 14px 12px;
+            font-weight: 800;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .vocab-table td {
+            padding: 12px;
+            border-bottom: 1px dashed #cccccc;
+            font-size: 0.98rem;
+            cursor: pointer;
+            transition: background 0.15s ease;
+        }
+
+        .vocab-table tr:hover td {
+            background-color: var(--stabilo-yellow);
+        }
+
+        .vocab-table tr.learned td {
+            background-color: #f1f8e9;
+        }
+
+        .vocab-table tr.learned:hover td {
+            background-color: #dcece0;
+        }
+
+        .check-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border: 2px solid #222222;
+            border-radius: 6px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .check-badge.checked {
+            background: var(--stabilo-green);
+        }
+
+        .flashcard-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .flashcard-modes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .flashcard-scene {
+            width: 100%;
+            height: 280px;
+            perspective: 1000px;
+            margin-bottom: 24px;
+            cursor: pointer;
+        }
+
+        .flashcard-body {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+
+        .flashcard-body.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: #ffffff;
+            border: 3px solid #222222;
+            border-radius: 20px;
+            box-shadow: 6px 6px 0px #222222;
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+            background: #fffde7;
+        }
+
+        .card-word {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .card-sub {
+            font-size: 1.1rem;
+            color: var(--ink-grey);
+            margin-bottom: 16px;
+        }
+
+        .card-number {
+            position: absolute;
+            top: 14px;
+            left: 18px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: var(--stabilo-yellow);
+            padding: 2px 8px;
+            border: 1px solid #222;
+            border-radius: 10px;
+        }
+
+        .card-hint-text {
+            position: absolute;
+            bottom: 14px;
+            font-size: 0.8rem;
+            color: #777777;
+        }
+
+        .flashcard-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .quiz-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-score-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            background: #ffffff;
+            border: 2px solid #222222;
+            border-radius: 12px;
+            box-shadow: 2px 2px 0px #222222;
+            padding: 12px 18px;
+            margin-bottom: 24px;
+            gap: 10px;
+        }
+
+        .score-item {
+            font-weight: 800;
+            font-size: 1.05rem;
+        }
+
+        .quiz-card {
+            background: #ffffff;
+            border: var(--border-doodle);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            box-shadow: var(--shadow-marker-lg);
+            padding: 28px 24px;
+            margin-bottom: 24px;
+            min-height: 280px;
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .option-btn {
+            background: #ffffff;
+            border: 2px solid #222222;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 1.05rem;
+            font-family: var(--font-hand);
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            box-shadow: 2px 2px 0px #222222;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option-btn:hover {
+            transform: translateX(4px);
+            background: var(--stabilo-yellow);
+        }
+
+        .option-btn.correct {
+            background: var(--stabilo-green) !important;
+            border-color: #222 !important;
+        }
+
+        .option-btn.wrong {
+            background: var(--stabilo-pink) !important;
+            border-color: #222 !important;
+        }
+
+        .matching-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .match-col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .match-item {
+            background: #ffffff;
+            border: 2px solid #222222;
+            border-radius: 10px;
+            padding: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            box-shadow: 2px 2px 0px #222;
+            text-align: center;
+        }
+
+        .match-item.selected {
+            background: var(--stabilo-yellow);
+            transform: scale(1.03);
+        }
+
+        .match-item.matched {
+            background: var(--stabilo-green);
+            opacity: 0.6;
+            cursor: default;
+            text-decoration: line-through;
+        }
+
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+
+        .word-chip {
+            background: #ffffff;
+            border: 2px solid #222222;
+            border-radius: 16px;
+            padding: 10px 20px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px #222222;
+            transition: all 0.15s ease;
+        }
+
+        .word-chip:hover {
+            transform: translateY(-2px);
+            background: var(--stabilo-yellow);
+        }
+
+        .speaker-box {
+            background: #fffde7;
+            border: 2px dashed #222222;
+            border-radius: 15px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .wave-anim {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            height: 36px;
+            margin-top: 10px;
+        }
+
+        .wave-bar {
+            width: 6px;
+            background: #222222;
+            border-radius: 3px;
+            height: 10px;
+            animation: waveBounce 0.8s infinite ease-in-out;
+        }
+
+        .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.6s; }
+
+        @keyframes waveBounce {
+            0%, 100% { height: 10px; }
+            50% { height: 32px; }
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .memory-card {
+            height: 100px;
+            perspective: 600px;
+            cursor: pointer;
+        }
+
+        .memory-card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.4s ease;
+        }
+
+        .memory-card.flipped .memory-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .memory-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 2px solid #222222;
+            border-radius: 12px;
+            padding: 8px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            box-shadow: 2px 2px 0px #222222;
+        }
+
+        .memory-front {
+            background: #ffffff;
+            font-size: 1.5rem;
+        }
+
+        .memory-back {
+            background: #fffde7;
+            transform: rotateY(180deg);
+        }
+
+        .memory-card.matched .memory-back {
+            background: var(--stabilo-green);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #fffcf8;
+            border: 3px solid #222222;
+            border-radius: 20px;
+            box-shadow: 8px 8px 0px #222222;
+            max-width: 650px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 28px;
+            position: relative;
+            animation: modalPop 0.25s ease-out;
+        }
+
+        @keyframes modalPop {
+            0% { transform: scale(0.85); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: #fff;
+            border: 2px solid #222;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px #222;
+            font-weight: 900;
+        }
+
+        .modal-close-btn:hover {
+            background: var(--stabilo-pink);
+            transform: rotate(90deg);
+        }
+
+        .tense-box {
+            background: #ffffff;
+            border: 2px solid #222;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 14px;
+            box-shadow: 2px 2px 0px #222;
+            text-align: left;
+        }
+
+        .tense-title {
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            display: inline-block;
+            background: var(--stabilo-yellow);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .tense-en {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+            color: #111;
+        }
+
+        .tense-id {
+            font-size: 0.95rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .grammar-guide-box {
+            background: #e8f5e9;
+            border: 2px dashed #2e7d32;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 18px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        #toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .doodle-toast {
+            background: #ffffff;
+            border: 2px solid #222222;
+            border-radius: 12px;
+            padding: 12px 20px;
+            box-shadow: 4px 4px 0px #222222;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: toastSlide 0.3s ease-out;
+            max-width: 320px;
+        }
+
+        @keyframes toastSlide {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .doodle-btn {
+                padding: 8px 14px;
+                font-size: 0.95rem;
+            }
+
+            .matching-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 20px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo-area" onclick="switchSection('home'); return false;">
+                <!-- Hand-drawn notebook icon SVG -->
+                <svg class="svg-icon" style="width:28px; height:28px;" viewBox="0 0 24 24">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-0.5-5H20"></path>
+                    <path d="M6 8h8M6 12h8M6 16h5"></path>
+                </svg>
+                <span class="logo-title">Notebook Doodle Study</span>
+            </a>
+
+            <nav class="nav-links">
+                <button class="doodle-btn active" id="btn-nav-home" onclick="switchSection('home')">
+                    Home
+                </button>
+                <button class="doodle-btn" id="btn-nav-vocabulary" onclick="switchSection('vocabulary')">
+                    Vocabulary
+                </button>
+                <button class="doodle-btn" id="btn-nav-flashcard" onclick="switchSection('flashcard')">
+                    Flashcard
+                </button>
+                <button class="doodle-btn" id="btn-nav-quiz" onclick="switchSection('quiz')">
+                    Quiz
+                </button>
+                <button class="doodle-btn" id="btn-nav-progress" onclick="switchSection('progress')">
+                    Progress
+                </button>
+                <button class="doodle-btn" id="btn-nav-tips" onclick="switchSection('tips')">
+                    Tips Menghafal
+                </button>
+                <button class="doodle-btn" id="btn-nav-minigame" onclick="switchSection('minigame')">
+                    Mini Game
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+       MAIN WORKSPACE CONTENT SECTIONS
+       ========================================================================== -->
+    <main class="container">
+
+        <!-- 1. HOME SECTION -->
+        <section id="section-home" class="section-view active">
+            <div class="hero-banner">
+                <h1 class="hero-title">Irregular Verbs 1–52</h1>
+                <p class="hero-subtitle">Belajar Verb 1 • Verb 2 • Verb 3 Dengan Cara Interaktif</p>
+
+                <!-- Target Belajar Sticky Note -->
+                <div class="sticky-note" style="max-width: 700px; margin: 0 auto 24px;">
+                    <div style="font-weight: 800; font-size: 1.2rem; margin-bottom: 8px;">
+                        Target Belajar & Progress Buku Catatanku
+                    </div>
+
+                    <div class="progress-wrapper">
+                        <div class="progress-bar-doodle">
+                            <div id="home-progress-bar" class="progress-bar-fill" style="width: 0%;">0%</div>
+                        </div>
+                    </div>
+
+                    <div class="target-grid">
+                        <div class="target-item">
+                            <div style="font-size: 0.9rem; color: var(--ink-grey);">Hari Ini (Target)</div>
+                            <div class="target-num" id="stat-today-target">10 Kata</div>
+                        </div>
+                        <div class="target-item" style="background: #e8f5e9;">
+                            <div style="font-size: 0.9rem; color: #2e7d32;">Sudah Dipelajari</div>
+                            <div class="target-num" id="stat-learned-count">0 / 52</div>
+                        </div>
+                        <div class="target-item" style="background: #fffde7;">
+                            <div style="font-size: 0.9rem; color: #7f6000;">Belum Dipelajari</div>
+                            <div class="target-num" id="stat-unlearned-count">52 / 52</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quote Doodle Banner -->
+                <div style="font-style: italic; font-weight: 700; color: #444; margin-bottom: 24px;">
+                    "Practice makes progress! Selangkah demi selangkah menghafal 52 Irregular Verb untuk ulangan Bahasa Inggris."
+                </div>
+
+                <!-- Quick Navigation Cards -->
+                <div class="grid-cards">
+                    <div class="nav-card" onclick="switchSection('vocabulary')">
+                        <div>
+                            <div class="nav-card-title">
+                                <span class="stabilo-yellow">Daftar Vocabulary</span>
+                            </div>
+                            <p class="nav-card-desc">Jelajahi tabel 52 Irregular Verbs lengkap dengan contoh kalimat V1, V2, V3 dan artinya.</p>
+                        </div>
+                        <span class="doodle-btn primary" style="width: 100%;">Buka Daftar Kata</span>
+                    </div>
+
+                    <div class="nav-card" onclick="switchSection('flashcard')">
+                        <div>
+                            <div class="nav-card-title">
+                                <span class="stabilo-green">Flashcard Interaktif</span>
+                            </div>
+                            <p class="nav-card-desc">Latih ingatanmu dengan 5 mode bolak-balik kartu, acak kata, dan fitur Auto Play.</p>
+                        </div>
+                        <span class="doodle-btn success" style="width: 100%;">Mulai Hafalan</span>
+                    </div>
+
+                    <div class="nav-card" onclick="switchSection('quiz')">
+                        <div>
+                            <div class="nav-card-title">
+                                <span class="stabilo-blue">7 Jenis Quiz</span>
+                            </div>
+                            <p class="nav-card-desc">Uji pemahamanmu lewat Pilihan Ganda, Isi Kosong, Pasangkan, Susun Acak, True/False, hingga Listening!</p>
+                        </div>
+                        <span class="doodle-btn info" style="width: 100%;">Mulai Kuis</span>
+                    </div>
+
+                    <div class="nav-card" onclick="switchSection('minigame')">
+                        <div>
+                            <div class="nav-card-title">
+                                <span class="stabilo-pink">Mini Game Memory</span>
+                            </div>
+                            <p class="nav-card-desc">Mainkan game cari pasangan kartu antara Verb dengan arti Indonesia dan cetak skor tercepatmu.</p>
+                        </div>
+                        <span class="doodle-btn danger" style="width: 100%;">Main Game</span>
+                    </div>
+                </div>
+
+                <!-- Kata Hari Ini Sticky Note -->
+                <div class="sticky-note green" style="max-width: 650px; margin: 20px auto 0; text-align: left;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span class="stabilo-yellow" style="font-weight: 800; font-size: 1.1rem;">Kata Pilihan Hari Ini</span>
+                        <button class="doodle-btn" style="padding: 4px 10px; font-size: 0.85rem;" onclick="generateWordOfDay()">Ganti Kata</button>
+                    </div>
+                    <div id="word-of-day-content" style="font-size: 1.05rem;">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. VOCABULARY SECTION -->
+        <section id="section-vocabulary" class="section-view">
+            <div class="section-header">
+                <h2 class="section-title">Daftar 52 Irregular Verbs</h2>
+                <div style="font-size: 0.95rem; font-weight: 700;">
+                    Klik baris kata untuk melihat detail kalimat V1, V2, V3 & penjelasan!
+                </div>
+            </div>
+
+            <!-- Filter & Search Toolbar -->
+            <div class="toolbar">
+                <div class="search-box">
+                    <svg class="svg-icon search-icon" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="vocab-search" class="doodle-input" placeholder="Cari Verb 1, 2, 3 atau Arti..." oninput="renderVocabularyTable()">
+                </div>
+
+                <div class="toolbar-group">
+                    <button class="doodle-btn active" id="btn-filter-all" onclick="setVocabFilter('all')">Semua (52)</button>
+                    <button class="doodle-btn" id="btn-filter-learned" onclick="setVocabFilter('learned')">Sudah Dipelajari</button>
+                    <button class="doodle-btn" id="btn-filter-unlearned" onclick="setVocabFilter('unlearned')">Belum Dipelajari</button>
+                </div>
+
+                <div class="toolbar-group">
+                    <button class="doodle-btn" id="btn-sort-no" onclick="setVocabSort('no')">Urut Nomor (1-52)</button>
+                    <button class="doodle-btn" id="btn-sort-az" onclick="setVocabSort('az')">Urut A-Z</button>
+                </div>
+            </div>
+
+            <!-- Vocabulary Table -->
+            <div class="table-responsive">
+                <table class="vocab-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">No</th>
+                            <th>Verb 1 (Base form)</th>
+                            <th>Verb 2 (Past simple)</th>
+                            <th>Verb 3 (Past participle)</th>
+                            <th>Artinya</th>
+                            <th style="width: 90px; text-align: center;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vocab-table-body">
+                        <!-- Populated dynamically by renderVocabularyTable() -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. FLASHCARD STUDIO SECTION -->
+        <section id="section-flashcard" class="section-view">
+            <div class="section-header">
+                <h2 class="section-title">Flashcard Studio</h2>
+                <div class="toolbar-group">
+                    <select id="flashcard-filter" class="doodle-select" onchange="initFlashcards()">
+                        <option value="all">Semua Kata (52)</option>
+                        <option value="unlearned">Hanya Belum Dipelajari</option>
+                        <option value="learned">Hanya Sudah Dipelajari</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flashcard-container">
+                <!-- Mode Selector -->
+                <div class="flashcard-modes">
+                    <button class="doodle-btn active" id="fc-mode-1" onclick="setFlashcardMode(1)">Verb → Arti</button>
+                    <button class="doodle-btn" id="fc-mode-2" onclick="setFlashcardMode(2)">Arti → Verb</button>
+                    <button class="doodle-btn" id="fc-mode-3" onclick="setFlashcardMode(3)">Verb 1 → Verb 2</button>
+                    <button class="doodle-btn" id="fc-mode-4" onclick="setFlashcardMode(4)">Verb 2 → Verb 3</button>
+                    <button class="doodle-btn" id="fc-mode-5" onclick="setFlashcardMode(5)">Verb 3 → Verb 1</button>
+                </div>
+
+                <!-- Card Flip Area -->
+                <div class="flashcard-scene" onclick="flipCurrentCard()">
+                    <div class="flashcard-body" id="flashcard-body">
+                        <!-- FRONT -->
+                        <div class="flashcard-face">
+                            <span class="card-number" id="fc-number">No. 1</span>
+                            <div class="card-word" id="fc-front-main">Arise</div>
+                            <div class="card-sub" id="fc-front-sub">Verb 1 (Base form)</div>
+                            <span class="card-hint-text">Klik kartu untuk membalik</span>
+                        </div>
+                        <!-- BACK -->
+                        <div class="flashcard-face flashcard-back">
+                            <span class="card-number" id="fc-number-back">No. 1</span>
+                            <div class="card-word stabilo-yellow" id="fc-back-main">Muncul</div>
+                            <div class="card-sub" id="fc-back-sub">Arose • Arisen</div>
+                            <span class="card-hint-text">Klik kartu untuk kembali</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress indicator & status toggle -->
+                <div style="margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <span style="font-weight: 800;" id="fc-counter">Kartu 1 dari 52</span>
+                    <button class="doodle-btn" id="fc-btn-learn" onclick="toggleLearnedFromFlashcard(event)">
+                        Tandai Sudah Dipelajari
+                    </button>
+                </div>
+
+                <!-- Controls -->
+                <div class="flashcard-controls">
+                    <button class="doodle-btn" onclick="prevFlashcard()">Previous</button>
+                    <button class="doodle-btn primary" onclick="flipCurrentCard()">Flip Kartu</button>
+                    <button class="doodle-btn" onclick="nextFlashcard()">Next</button>
+                    <button class="doodle-btn" onclick="shuffleFlashcards()">Acak Urutan</button>
+                    <button class="doodle-btn" onclick="randomFlashcard()">Random Kata</button>
+                    <button class="doodle-btn info" id="fc-btn-auto" onclick="toggleAutoPlay()">Auto Play</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. QUIZ SECTION (ALL 7 QUIZ TYPES) -->
+        <section id="section-quiz" class="section-view">
+            <div class="section-header">
+                <h2 class="section-title">Quiz Center • 7 Jenis Ujian</h2>
+                <div style="font-weight: 700; font-size: 0.95rem;">
+                    Persiapan Ulangan Sekolah Bahasa Inggris Kelas 8
+                </div>
+            </div>
+
+            <!-- Quiz Type Selector -->
+            <div class="quiz-tabs">
+                <button class="doodle-btn active" id="btn-qz-1" onclick="startQuizType(1)">1. Pilihan Ganda</button>
+                <button class="doodle-btn" id="btn-qz-2" onclick="startQuizType(2)">2. Isi Kosong</button>
+                <button class="doodle-btn" id="btn-qz-3" onclick="startQuizType(3)">3. Pasangkan</button>
+                <button class="doodle-btn" id="btn-qz-4" onclick="startQuizType(4)">4. Susun Acak</button>
+                <button class="doodle-btn" id="btn-qz-5" onclick="startQuizType(5)">5. True / False</button>
+                <button class="doodle-btn" id="btn-qz-6" onclick="startQuizType(6)">6. Arti Kata</button>
+                <button class="doodle-btn" id="btn-qz-7" onclick="startQuizType(7)">7. Listening Dummy</button>
+                <button class="doodle-btn success" id="btn-qz-8" onclick="startQuizType(8)">Mode Campuran</button>
+            </div>
+
+            <!-- Score Bar -->
+            <div class="quiz-score-bar">
+                <div class="score-item">Soal: <span id="qz-current-num">1 / 10</span></div>
+                <div class="score-item" style="color: #2e7d32;">Benar: <span id="qz-correct">0</span></div>
+                <div class="score-item" style="color: #c62828;">Salah: <span id="qz-wrong">0</span></div>
+                <div class="score-item">Skor: <span id="qz-score" class="stabilo-yellow">0</span></div>
+                <div class="score-item">Persentase: <span id="qz-percent">0%</span></div>
+            </div>
+
+            <!-- Main Quiz Area -->
+            <div class="quiz-card" id="quiz-area">
+                <!-- Dynamically populated by JS depending on quiz mode -->
+            </div>
+
+            <!-- Bottom Quiz Actions -->
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                <button class="doodle-btn" onclick="restartCurrentQuiz()">Ulangi Quiz Ini</button>
+                <button class="doodle-btn primary" onclick="showQuizReviewModal()" id="btn-review-ans" style="display: none;">
+                    Review Jawaban
+                </button>
+            </div>
+        </section>
+
+        <!-- 5. PROGRESS SECTION -->
+        <section id="section-progress" class="section-view">
+            <div class="section-header">
+                <h2 class="section-title">Progress & Buku Prestasi</h2>
+                <button class="doodle-btn danger" onclick="confirmResetProgress()">Hapus Semua Progress</button>
+            </div>
+
+            <div class="doodle-box">
+                <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">
+                    Statistik Hafalan Irregular Verb
+                </h3>
+                <div class="progress-wrapper">
+                    <div class="progress-bar-doodle">
+                        <div id="prog-bar-main" class="progress-bar-fill" style="width: 0%;">0%</div>
+                    </div>
+                </div>
+
+                <div class="target-grid" style="margin-bottom: 24px;">
+                    <div class="target-item" style="background: #e8f5e9;">
+                        <div style="font-weight: 700;">Sudah Dipelajari</div>
+                        <div class="target-num" id="prog-learned-num">0</div>
+                    </div>
+                    <div class="target-item" style="background: #fffde7;">
+                        <div style="font-weight: 700;">Belum Dipelajari</div>
+                        <div class="target-num" id="prog-unlearned-num">52</div>
+                    </div>
+                    <div class="target-item" style="background: #e1f5fe;">
+                        <div style="font-weight: 700;">Nilai Rata-rata Quiz</div>
+                        <div class="target-num" id="prog-avg-score">0</div>
+                    </div>
+                    <div class="target-item" style="background: #fce4ec;">
+                        <div style="font-weight: 700;">Total Quiz Selesai</div>
+                        <div class="target-num" id="prog-total-quiz">0</div>
+                    </div>
+                </div>
+
+                <!-- Target Belajar Harian Editor -->
+                <div style="background: #fffde7; border: 2px solid #e0c068; border-radius: 12px; padding: 18px; margin-bottom: 24px;">
+                    <label style="font-weight: 800; font-size: 1.1rem; display: block; margin-bottom: 8px;">
+                        Atur Target Hafalan per Hari:
+                    </label>
+                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <select id="select-daily-target" class="doodle-select" onchange="saveDailyTarget(this.value)">
+                            <option value="5">5 Kata per Hari</option>
+                            <option value="10">10 Kata per Hari</option>
+                            <option value="15">15 Kata per Hari</option>
+                            <option value="20">20 Kata per Hari</option>
+                            <option value="52">Semua 52 Kata Sekaligus</option>
+                        </select>
+                        <span style="font-weight: 700; color: #555;">(Disimpan di LocalStorage)</span>
+                    </div>
+                </div>
+
+                <!-- Learned Vocabulary List Box -->
+                <div>
+                    <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 12px;">
+                        Daftar Kata yang Sudah Kamu Kuasai (<span id="prog-learned-badge">0</span>/52):
+                    </h4>
+                    <div id="prog-learned-list" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TIPS MENGHAFAL SECTION -->
+        <section id="section-tips" class="section-view">
+            <div class="section-header">
+                <h2 class="section-title">Tips Menghafal • Rahasia Cepat Hafal</h2>
+                <div style="font-weight: 700; font-size: 0.95rem;">
+                    Panduan Khusus Persiapan Ulangan Kelas 8
+                </div>
+            </div>
+
+            <!-- Sticky note introduction -->
+            <div class="sticky-note" style="max-width: 800px; margin: 0 auto 28px;">
+                <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 10px;">
+                    Cara Menghafal 52 Irregular Verbs Tanpa Pusing
+                </h3>
+                <p style="font-size: 1.05rem; line-height: 1.7;">
+                    Kunci utama menguasai Irregular Verbs adalah <b>mengelompokkan pola perubahan kata</b>. Jangan hafalkan satu per satu secara acak! Mari kelompokkan 52 kata ke dalam 3 kelompok utama di bawah ini:
+                </p>
+            </div>
+
+            <!-- 3 Grouping Boxes -->
+            <div class="doodle-box" style="background: #e8f5e9;">
+                <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 10px;">
+                    1. Kelompok AAA • Tiga Bentuk Sama (Verb 1 = Verb 2 = Verb 3)
+                </h3>
+                <p style="margin-bottom: 12px; color: #333;">
+                    Kelompok ini paling mudah! Bentuk dasar, lampau, dan partisip tidak berubah sama sekali. Cukup hafalkan artinya:
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="doodle-btn" style="cursor: default;">Beat - Beat - Beaten (Hampir AAA)</span>
+                    <span class="doodle-btn success" style="cursor: default;">Bet - Bet - Bet (Bertaruh)</span>
+                    <span class="doodle-btn success" style="cursor: default;">Bid - Bid - Bid (Menawarkan)</span>
+                    <span class="doodle-btn success" style="cursor: default;">Burst - Burst - Burst (Meletus)</span>
+                    <span class="doodle-btn success" style="cursor: default;">Cast - Cast - Cast (Melempar)</span>
+                    <span class="doodle-btn success" style="cursor: default;">Cost - Cost - Cost (Berharga)</span>
+                    <span class="doodle-btn success" style="cursor: default;">Cut - Cut - Cut (Memotong)</span>
+                    <span class="doodle-btn success" style="cursor: default;">Fit - Fit - Fit (Cocok)</span>
+                </div>
+            </div>
+
+            <div class="doodle-box" style="background: #e1f5fe;">
+                <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 10px;">
+                    2. Kelompok ABB • Verb 2 dan Verb 3 Sama (Verb 2 = Verb 3)
+                </h3>
+                <p style="margin-bottom: 12px; color: #333;">
+                    Kelompok ini memiliki akhiran yang sama di Verb 2 dan Verb 3, biasanya berakhiran <b>-t</b>, <b>-ght</b>, atau <b>-d</b>:
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="doodle-btn info" style="cursor: default;">Bind - Bound - Bound</span>
+                    <span class="doodle-btn info" style="cursor: default;">Bleed - Bled - Bled</span>
+                    <span class="doodle-btn info" style="cursor: default;">Breed - Bred - Bred</span>
+                    <span class="doodle-btn info" style="cursor: default;">Bring - Brought - Brought</span>
+                    <span class="doodle-btn info" style="cursor: default;">Build - Built - Built</span>
+                    <span class="doodle-btn info" style="cursor: default;">Burn - Burnt - Burnt</span>
+                    <span class="doodle-btn info" style="cursor: default;">Buy - Bought - Bought</span>
+                    <span class="doodle-btn info" style="cursor: default;">Catch - Caught - Caught</span>
+                    <span class="doodle-btn info" style="cursor: default;">Cling - Clung - Clung</span>
+                    <span class="doodle-btn info" style="cursor: default;">Creep - Crept - Crept</span>
+                    <span class="doodle-btn info" style="cursor: default;">Deal - Dealt - Dealt</span>
+                    <span class="doodle-btn info" style="cursor: default;">Dig - Dug - Dug</span>
+                    <span class="doodle-btn info" style="cursor: default;">Dream - Dreamt - Dreamt</span>
+                    <span class="doodle-btn info" style="cursor: default;">Feed - Fed - Fed</span>
+                    <span class="doodle-btn info" style="cursor: default;">Feel - Felt - Felt</span>
+                    <span class="doodle-btn info" style="cursor: default;">Fight - Fought - Fought</span>
+                    <span class="doodle-btn info" style="cursor: default;">Find - Found - Found</span>
+                    <span class="doodle-btn info" style="cursor: default;">Flee - Fled - Fled</span>
+                    <span class="doodle-btn info" style="cursor: default;">Fling - Flung - Flung</span>
+                </div>
+            </div>
+
+            <div class="doodle-box" style="background: #fffde7;">
+                <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 10px;">
+                    3. Kelompok ABC • Ketiga Bentuk Berbeda (Verb 1 ≠ Verb 2 ≠ Verb 3)
+                </h3>
+                <p style="margin-bottom: 12px; color: #333;">
+                    Perhatikan pola perubahan huruf vokal (contoh: <b>i - a - u</b> pada Begin-Began-Begun, Drink-Drank-Drunk) atau akhiran <b>-n/-en</b> di Verb 3:
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="doodle-btn primary" style="cursor: default;">Arise - Arose - Arisen</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Awake - Awoke - Awoken</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Be - Was/Were - Been</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Bear - Bore - Borne</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Become - Became - Become</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Begin - Began - Begun</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Bite - Bit - Bitten</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Blow - Blew - Blown</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Break - Broke - Broken</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Choose - Chose - Chosen</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Come - Came - Come</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Do - Did - Done</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Draw - Drew - Drawn</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Drink - Drank - Drunk</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Drive - Drove - Driven</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Eat - Ate - Eaten</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Fall - Fell - Fallen</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Fly - Flew - Flown</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Forbid - Forbade - Forbidden</span>
+                    <span class="doodle-btn primary" style="cursor: default;">Foresee - Foresaw - Foreseen</span>
+                </div>
+            </div>
+
+            <!-- Actionable Tips Sticky Notes -->
+            <div class="grid-cards" style="margin-top: 24px;">
+                <div class="sticky-note" style="margin: 0;">
+                    <h4 style="font-weight: 800; font-size: 1.15rem; margin-bottom: 8px;" class="stabilo-yellow">
+                        1. Belajar 10 Kata per Hari
+                    </h4>
+                    <p style="font-size: 0.95rem;">
+                        Konsisten adalah kuncinya! Jangan hafalkan 52 kata dalam 1 malam. 10 kata per hari membuatmu siap 100% dalam 5 hari.
+                    </p>
+                </div>
+                <div class="sticky-note green" style="margin: 0;">
+                    <h4 style="font-weight: 800; font-size: 1.15rem; margin-bottom: 8px;">
+                        2. Gunakan Fitur Auto-Play
+                    </h4>
+                    <p style="font-size: 0.95rem;">
+                        Sebelum tidur, buka tab <b>Flashcard</b> dan aktifkan <b>Auto Play</b>. Dengarkan dan lihat perputarannya secara berulang.
+                    </p>
+                </div>
+                <div class="sticky-note blue" style="margin: 0;">
+                    <h4 style="font-weight: 800; font-size: 1.15rem; margin-bottom: 8px;">
+                        3. Latihan dalam Kalimat
+                    </h4>
+                    <p style="font-size: 0.95rem;">
+                        Klik setiap kata di tabel Vocabulary untuk melihat contoh kalimat Simple Present, Past, dan Perfect agar tahu kapan penggunaannya.
+                    </p>
+                </div>
+                <div class="sticky-note pink" style="margin: 0;">
+                    <h4 style="font-weight: 800; font-size: 1.15rem; margin-bottom: 8px;">
+                        4. Uji di Quiz Setiap Hari
+                    </h4>
+                    <p style="font-size: 0.95rem;">
+                        Cobalah semua 7 mode Quiz, terutama Pasangkan dan Susun Acak, agar rekor nilai rata-ratamu terus bertambah di buku prestasi!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. MINI GAME SECTION ("MEMORY CARD") -->
+        <section id="section-minigame" class="section-view">
+            <div class="section-header">
+                <h2 class="section-title">Mini Game • Memory Card Match</h2>
+                <div style="font-weight: 700; font-size: 0.95rem;">
+                    Cari Pasangan Kartu Verb dan Artinya!
+                </div>
+            </div>
+
+            <!-- Game Toolbar -->
+            <div class="toolbar">
+                <div class="toolbar-group">
+                    <button class="doodle-btn active" id="btn-mg-mode-1" onclick="startMemoryGame('v1-arti', 6)">
+                        Mode 1: Verb ↔ Arti (6 Pasang)
+                    </button>
+                    <button class="doodle-btn" id="btn-mg-mode-2" onclick="startMemoryGame('v1-v2', 8)">
+                        Mode 2: Verb 1 ↔ Verb 2 (8 Pasang)
+                    </button>
+                    <button class="doodle-btn" id="btn-mg-mode-3" onclick="startMemoryGame('v2-v3', 10)">
+                        Mode 3: Verb 2 ↔ Verb 3 (10 Pasang)
+                    </button>
+                </div>
+
+                <div class="toolbar-group">
+                    <button class="doodle-btn primary" onclick="restartMemoryGame()">Acak & Ulangi Game</button>
+                </div>
+            </div>
+
+            <!-- Score / Timer Bar -->
+            <div class="quiz-score-bar">
+                <div class="score-item">Langkah: <span id="mg-moves" class="stabilo-yellow">0</span></div>
+                <div class="score-item">Cocok: <span id="mg-matched">0 / 6</span></div>
+                <div class="score-item">Waktu: <span id="mg-timer">00:00</span></div>
+            </div>
+
+            <!-- Grid Cards -->
+            <div id="memory-board" class="memory-grid">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================================================
+       MODAL POPUP DETAIL VOCABULARY
+       ========================================================================== -->
+    <div id="modal-detail" class="modal-overlay" onclick="closeModalOnBg(event)">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeModal()">X</button>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+                <span class="stabilo-yellow" style="font-weight: 800; font-size: 0.95rem;" id="mod-number">No. 1</span>
+                <button class="doodle-btn success" id="mod-btn-learn" onclick="toggleLearnedFromModal()">
+                    Tandai Sudah Dipelajari
+                </button>
+            </div>
+
+            <h3 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 4px;" id="mod-v1">Arise</h3>
+            <div style="font-size: 1.3rem; color: #444; font-weight: 700; margin-bottom: 12px;">
+                <span id="mod-v2">Arose</span> • <span id="mod-v3">Arisen</span> = <span class="stabilo-yellow" id="mod-arti">Muncul</span>
+            </div>
+
+            <!-- Audio Pronounce Button -->
+            <div style="margin-bottom: 18px;">
+                <button class="doodle-btn primary" onclick="speakCurrentModalWord()">
+                    Dengarkan Pengucapan
+                </button>
+            </div>
+
+            <hr style="border: none; border-top: 2px dashed #bbb; margin: 16px 0;">
+
+            <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 10px;">
+                Contoh Kalimat Penggunaan Verb 1, Verb 2, dan Verb 3:
+            </h4>
+
+            <!-- Tense Sentences -->
+            <div class="tense-box">
+                <div class="tense-title">Simple Present Tense (Verb 1 / Base Form)</div>
+                <div class="tense-en" id="mod-sent-v1">Problems arise when we do not communicate.</div>
+                <div class="tense-id" id="mod-trans-v1">Masalah muncul ketika kita tidak berkomunikasi.</div>
+            </div>
+
+            <div class="tense-box">
+                <div class="tense-title">Simple Past Tense (Verb 2 / Past Simple)</div>
+                <div class="tense-en" id="mod-sent-v2">A sudden storm arose last night.</div>
+                <div class="tense-id" id="mod-trans-v2">Badai tiba-tiba muncul tadi malam.</div>
+            </div>
+
+            <div class="tense-box">
+                <div class="tense-title">Present Perfect Tense (Verb 3 / Past Participle)</div>
+                <div class="tense-en" id="mod-sent-v3">Many questions have arisen during the meeting.</div>
+                <div class="tense-id" id="mod-trans-v3">Banyak pertanyaan telah muncul selama rapat.</div>
+            </div>
+
+            <!-- Grammar Guide Box -->
+            <div class="grammar-guide-box">
+                <div style="font-weight: 800; margin-bottom: 6px;">Kapan Memakai Verb 1, Verb 2, dan Verb 3?</div>
+                <ul style="padding-left: 20px; line-height: 1.6;">
+                    <li><b>Verb 1 (Base Form):</b> Digunakan untuk kalimat Simple Present Tense, fakta umum, dan kebiasaan sehari-hari (selalu, setiap hari, biasanya).</li>
+                    <li><b>Verb 2 (Past Simple):</b> Digunakan untuk kejadian yang sudah selesai di masa lampau (kemarin, tadi malam, minggu lalu, tahun lalu).</li>
+                    <li><b>Verb 3 (Past Participle):</b> Digunakan dalam kalimat Perfect Tense (setelah <i>have/has/had</i> untuk menyatakan 'sudah/telah') atau kalimat pasif (Passive Voice).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       MODAL REVIEW JAWABAN QUIZ
+       ========================================================================== -->
+    <div id="modal-review" class="modal-overlay" onclick="closeReviewModalOnBg(event)">
+        <div class="modal-content" style="max-width: 750px;">
+            <button class="modal-close-btn" onclick="closeReviewModal()">X</button>
+            <h3 style="font-size: 1.7rem; font-weight: 900; margin-bottom: 12px;">
+                Review Jawaban Quiz
+            </h3>
+            <div id="review-list-container" style="display: flex; flex-direction: column; gap: 14px;">
+                <!-- Generated by JS -->
+            </div>
+            <div style="margin-top: 20px; text-align: right;">
+                <button class="doodle-btn primary" onclick="closeReviewModal()">Tutup Review</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       TOAST CONTAINER FOR DOODLE FEEDBACK
+       ========================================================================== -->
+    <div id="toast-container"></div>
+    
+
+    <!-- ==========================================================================
+       JAVASCRIPT ARRAY & APPLICATION CONTROLLER
+       ========================================================================== -->
+    <script>
+        const VERBS_DATA = [
+    {
+        "no": 1,
+        "v1": "Arise",
+        "v2": "Arose",
+        "v3": "Arisen",
+        "arti": "Muncul",
+        "sent_v1": "Problems arise when we do not communicate.",
+        "trans_v1": "Masalah muncul ketika kita tidak berkomunikasi.",
+        "sent_v2": "A sudden storm arose last night.",
+        "trans_v2": "Badai tiba-tiba muncul tadi malam.",
+        "sent_v3": "Many questions have arisen during the meeting.",
+        "trans_v3": "Banyak pertanyaan telah muncul selama rapat."
+    },
+    {
+        "no": 2,
+        "v1": "Awake",
+        "v2": "Awoke",
+        "v3": "Awoken",
+        "arti": "Bangun",
+        "sent_v1": "I awake early every morning for school.",
+        "trans_v1": "Saya bangun pagi setiap hari untuk sekolah.",
+        "sent_v2": "She awoke to the sound of birds singing.",
+        "trans_v2": "Dia terbangun karena suara burung berkicau.",
+        "sent_v3": "He has awoken from his afternoon nap.",
+        "trans_v3": "Dia sudah bangun dari tidur siangnya."
+    },
+    {
+        "no": 3,
+        "v1": "Be",
+        "v2": "Was/Were",
+        "v3": "Been",
+        "arti": "Menjadi",
+        "sent_v1": "I want to be a diligent student.",
+        "trans_v1": "Saya ingin menjadi siswa yang rajin.",
+        "sent_v2": "She was the class leader last year.",
+        "trans_v2": "Dia adalah ketua kelas tahun lalu.",
+        "sent_v3": "We have been good friends since childhood.",
+        "trans_v3": "Kami telah menjadi teman baik sejak masa kecil."
+    },
+    {
+        "no": 4,
+        "v1": "Bear",
+        "v2": "Bore",
+        "v3": "Borne",
+        "arti": "Menanggung",
+        "sent_v1": "I can bear this heavy responsibility.",
+        "trans_v1": "Saya bisa menanggung tanggung jawab berat ini.",
+        "sent_v2": "He bore the weight of the bags without complaining.",
+        "trans_v2": "Dia menanggung berat tas-tas itu tanpa mengeluh.",
+        "sent_v3": "She has borne many challenges with patience.",
+        "trans_v3": "Dia telah menanggung banyak tantangan dengan kesabaran."
+    },
+    {
+        "no": 5,
+        "v1": "Beat",
+        "v2": "Beat",
+        "v3": "Beaten",
+        "arti": "Mengalahkan",
+        "sent_v1": "Our school team can beat any opponent.",
+        "trans_v1": "Tim sekolah kita bisa mengalahkan lawan mana pun.",
+        "sent_v2": "They beat the defending champions yesterday.",
+        "trans_v2": "Mereka mengalahkan juara bertahan kemarin.",
+        "sent_v3": "We have beaten our own high score.",
+        "trans_v3": "Kita telah mengalahkan rekor nilai tertinggi kita sendiri."
+    },
+    {
+        "no": 6,
+        "v1": "Become",
+        "v2": "Became",
+        "v3": "Become",
+        "arti": "Menjadi",
+        "sent_v1": "You will become a fluent English speaker.",
+        "trans_v1": "Kamu akan menjadi fasih berbahasa Inggris.",
+        "sent_v2": "He became a doctor after years of study.",
+        "trans_v2": "Dia menjadi dokter setelah bertahun-tahun belajar.",
+        "sent_v3": "She has become an inspiration to us all.",
+        "trans_v3": "Dia telah menjadi inspirasi bagi kita semua."
+    },
+    {
+        "no": 7,
+        "v1": "Begin",
+        "v2": "Began",
+        "v3": "Begun",
+        "arti": "Mulai",
+        "sent_v1": "We begin our English lesson at eight o'clock.",
+        "trans_v1": "Kita mulai pelajaran Bahasa Inggris jam delapan.",
+        "sent_v2": "It began to rain when we walked home.",
+        "trans_v2": "Hujan mulai turun saat kami berjalan pulang.",
+        "sent_v3": "The teacher has begun the vocabulary quiz.",
+        "trans_v3": "Guru sudah mulai kuis kosakata."
+    },
+    {
+        "no": 8,
+        "v1": "Behold",
+        "v2": "Beheld",
+        "v3": "Beheld",
+        "arti": "Melihat",
+        "sent_v1": "Behold the beautiful sunrise over the mountain.",
+        "trans_v1": "Lihatlah matahari terbit yang indah di atas gunung.",
+        "sent_v2": "They beheld a wonderful scene from the window.",
+        "trans_v2": "Mereka melihat pemandangan indah dari jendela.",
+        "sent_v3": "We have beheld the historical artifacts in the museum.",
+        "trans_v3": "Kami telah melihat artefak bersejarah di museum."
+    },
+    {
+        "no": 9,
+        "v1": "Bend",
+        "v2": "Bent",
+        "v3": "Bent",
+        "arti": "Membengkokkan",
+        "sent_v1": "Do not bend the pages of your library book.",
+        "trans_v1": "Jangan membengkokkan halaman buku perpustakaanmu.",
+        "sent_v2": "He bent the wire to make a small hook.",
+        "trans_v2": "Dia membengkokkan kawat untuk membuat kail kecil.",
+        "sent_v3": "The wind has bent the tree branches.",
+        "trans_v3": "Angin telah membengkokkan ranting-ranting pohon."
+    },
+    {
+        "no": 10,
+        "v1": "Bet",
+        "v2": "Bet",
+        "v3": "Bet",
+        "arti": "Bertaruh",
+        "sent_v1": "I bet you will pass the English exam easily.",
+        "trans_v1": "Saya bertaruh kamu akan lulus ujian Bahasa Inggris dengan mudah.",
+        "sent_v2": "He bet that our team would win the competition.",
+        "trans_v2": "Dia bertaruh bahwa tim kita akan memenangkan kompetisi.",
+        "sent_v3": "They have bet their effort on this project.",
+        "trans_v3": "Mereka telah bertaruh usaha mereka pada proyek ini."
+    },
+    {
+        "no": 11,
+        "v1": "Bid",
+        "v2": "Bid",
+        "v3": "Bid",
+        "arti": "Menawarkan",
+        "sent_v1": "We bid a fair price for the handmade notebook.",
+        "trans_v1": "Kami menawarkan harga yang wajar untuk buku catatan buatan tangan itu.",
+        "sent_v2": "She bid the highest price at the charity auction.",
+        "trans_v2": "Dia menawarkan harga tertinggi di lelang amal.",
+        "sent_v3": "They have bid their support for our school festival.",
+        "trans_v3": "Mereka telah menawarkan dukungan untuk festival sekolah kita."
+    },
+    {
+        "no": 12,
+        "v1": "Bind",
+        "v2": "Bound",
+        "v3": "Bound",
+        "arti": "Mengikat",
+        "sent_v1": "We use string to bind the loose papers together.",
+        "trans_v1": "Kita memakai tali untuk mengikat kertas-kertas lepas bersama.",
+        "sent_v2": "He bound the books neatly with ribbon.",
+        "trans_v2": "Dia mengikat buku-buku itu dengan rapi memakai pita.",
+        "sent_v3": "The rules have bound us to honesty and integrity.",
+        "trans_v3": "Aturan-aturan telah mengikat kita pada kejujuran dan integritas."
+    },
+    {
+        "no": 13,
+        "v1": "Bite",
+        "v2": "Bit",
+        "v3": "Bitten",
+        "arti": "Menggigit",
+        "sent_v1": "Be careful, that dog can bite strangers.",
+        "trans_v1": "Hati-hati, anjing itu bisa menggigit orang asing.",
+        "sent_v2": "A mosquito bit my arm last evening.",
+        "trans_v2": "Nyamuk menggigit lengan saya kemarinsore.",
+        "sent_v3": "The insect has bitten several students in the garden.",
+        "trans_v3": "Serangga itu telah menggigit beberapa siswa di taman."
+    },
+    {
+        "no": 14,
+        "v1": "Bleed",
+        "v2": "Bled",
+        "v3": "Bled",
+        "arti": "Berdarah",
+        "sent_v1": "Press the bandage tightly so it does not bleed.",
+        "trans_v1": "Tekan perban dengan kencang agar tidak berdarah.",
+        "sent_v2": "My finger bled when I cut the paper accidentally.",
+        "trans_v2": "Jari saya berdarah ketika tidak sengaja memotong kertas.",
+        "sent_v3": "His scraped knee has bled through the cloth.",
+        "trans_v3": "Lututnya yang lecet telah berdarah menembus kain."
+    },
+    {
+        "no": 15,
+        "v1": "Blow",
+        "v2": "Blew",
+        "v3": "Blown",
+        "arti": "Meniup",
+        "sent_v1": "Blow on your hot soup before eating it.",
+        "trans_v1": "Tiup sup panasmu sebelum memakannya.",
+        "sent_v2": "A strong wind blew the dry leaves across the yard.",
+        "trans_v2": "Angin kencang meniup daun-daun kering di seberang halaman.",
+        "sent_v3": "The wind has blown my cap onto the grass.",
+        "trans_v3": "Angin telah meniup topi saya ke atas rumput."
+    },
+    {
+        "no": 16,
+        "v1": "Break",
+        "v2": "Broke",
+        "v3": "Broken",
+        "arti": "Merusak",
+        "sent_v1": "Please do not break the laboratory equipment.",
+        "trans_v1": "Tolong jangan merusak peralatan laboratorium.",
+        "sent_v2": "He accidentally broke his pencil point during the test.",
+        "trans_v2": "Dia tidak sengaja merusak ujung pensilnya saat ujian.",
+        "sent_v3": "Somebody has broken the old wooden ruler.",
+        "trans_v3": "Seseorang telah merusak penggaris kayu lama itu."
+    },
+    {
+        "no": 17,
+        "v1": "Breed",
+        "v2": "Bred",
+        "v3": "Bred",
+        "arti": "Menternakkan",
+        "sent_v1": "Farmers breed healthy cattle on this green ranch.",
+        "trans_v1": "Peternak menternakkan sapi sehat di peternakan hijau ini.",
+        "sent_v2": "They bred colorful freshwater fish in the pond.",
+        "trans_v2": "Mereka menternakkan ikan air tawar warna-warni di kolam.",
+        "sent_v3": "My uncle has bred rabbits for three years.",
+        "trans_v3": "Paman saya telah menternakkan kelinci selama tiga tahun."
+    },
+    {
+        "no": 18,
+        "v1": "Bring",
+        "v2": "Brought",
+        "v3": "Brought",
+        "arti": "Membawa",
+        "sent_v1": "Always bring your dictionary to our English class.",
+        "trans_v1": "Selalu bawa kamusmu ke kelas Bahasa Inggris kita.",
+        "sent_v2": "She brought delicious snacks for everyone yesterday.",
+        "trans_v2": "Dia membawa camilan lezat untuk semua orang kemarin.",
+        "sent_v3": "We have brought all the required study materials.",
+        "trans_v3": "Kami telah membawa semua bahan belajar yang diperlukan."
+    },
+    {
+        "no": 19,
+        "v1": "Build",
+        "v2": "Built",
+        "v3": "Built",
+        "arti": "Membangun",
+        "sent_v1": "We build our vocabulary by practicing every day.",
+        "trans_v1": "Kita membangun kosakata kita dengan berlatih setiap hari.",
+        "sent_v2": "They built a wooden birdhouse in the school garden.",
+        "trans_v2": "Mereka membangun rumah burung kayu di taman sekolah.",
+        "sent_v3": "Our school has built a new language laboratory.",
+        "trans_v3": "Sekolah kita telah membangun laboratorium bahasa baru."
+    },
+    {
+        "no": 20,
+        "v1": "Burn",
+        "v2": "Burnt",
+        "v3": "Burnt",
+        "arti": "Membakar",
+        "sent_v1": "Do not burn dry trash near the classroom.",
+        "trans_v1": "Jangan membakar sampah kering di dekat ruang kelas.",
+        "sent_v2": "The campfire burnt brightly throughout the cool night.",
+        "trans_v2": "Api unggun membakar dengan terang sepanjang malam yang dingin.",
+        "sent_v3": "The hot pan has burnt the edge of the paper.",
+        "trans_v3": "Wajan panas itu telah membakar tepi kertas."
+    },
+    {
+        "no": 21,
+        "v1": "Burst",
+        "v2": "Burst",
+        "v3": "Burst",
+        "arti": "Meletus",
+        "sent_v1": "Too much air can make the balloon burst.",
+        "trans_v1": "Terlalu banyak udara bisa membuat balon meletus.",
+        "sent_v2": "The old water pipe burst during the heavy rain.",
+        "trans_v2": "Pipa air lama meletus saat hujan deras.",
+        "sent_v3": "Three colorful balloons have burst at the party.",
+        "trans_v3": "Tiga balon warna-warni telah meletus di pesta."
+    },
+    {
+        "no": 22,
+        "v1": "Buy",
+        "v2": "Bought",
+        "v3": "Bought",
+        "arti": "Membeli",
+        "sent_v1": "I buy a new notebook at the stationery shop.",
+        "trans_v1": "Saya membeli buku tulis baru di toko alat tulis.",
+        "sent_v2": "He bought a blue highlighter for his English notes.",
+        "trans_v2": "Dia membeli stabilo biru untuk catatan Bahasa Inggrisnya.",
+        "sent_v3": "She has bought all the textbooks for semester two.",
+        "trans_v3": "Dia telah membeli semua buku pelajaran untuk semester dua."
+    },
+    {
+        "no": 23,
+        "v1": "Cast",
+        "v2": "Cast",
+        "v3": "Cast",
+        "arti": "Melempar",
+        "sent_v1": "Cast your ball toward the target hoop.",
+        "trans_v1": "Lempar bolamu ke arah lingkaran target.",
+        "sent_v2": "He cast the fishing net into the calm river.",
+        "trans_v2": "Dia melempar jaring pancing ke sungai yang tenang.",
+        "sent_v3": "They have cast their votes for the class president.",
+        "trans_v3": "Mereka telah melempar suara mereka untuk ketua kelas."
+    },
+    {
+        "no": 24,
+        "v1": "Catch",
+        "v2": "Caught",
+        "v3": "Caught",
+        "arti": "Menangkap",
+        "sent_v1": "Try to catch the ball with both hands.",
+        "trans_v1": "Coba tangkap bola dengan kedua tangan.",
+        "sent_v2": "She caught the bus just in time this morning.",
+        "trans_v2": "Dia menangkap bus tepat waktu pagi ini.",
+        "sent_v3": "I have caught the main idea of this story.",
+        "trans_v3": "Saya telah menangkap ide utama dari cerita ini."
+    },
+    {
+        "no": 25,
+        "v1": "Choose",
+        "v2": "Chose",
+        "v3": "Chosen",
+        "arti": "Memilih",
+        "sent_v1": "You can choose one partner for the dialogue practice.",
+        "trans_v1": "Kamu bisa memilih satu pasangan untuk latihan dialog.",
+        "sent_v2": "We chose English as our favorite school subject.",
+        "trans_v2": "Kami memilih Bahasa Inggris sebagai mata pelajaran favorit kami.",
+        "sent_v3": "The teacher has chosen five students for the contest.",
+        "trans_v3": "Guru telah memilih lima siswa untuk lomba."
+    },
+    {
+        "no": 26,
+        "v1": "Cling",
+        "v2": "Clung",
+        "v3": "Clung",
+        "arti": "Melekat",
+        "sent_v1": "Wet leaves cling to the classroom window.",
+        "trans_v1": "Daun basah melekat pada jendela ruang kelas.",
+        "sent_v2": "The small kitten clung to the branch safely.",
+        "trans_v2": "Anak kucing kecil itu melekat pada dahan dengan aman.",
+        "sent_v3": "The sticker has clung firmly to my notebook cover.",
+        "trans_v3": "Stiker itu telah melekat kuat pada sampul buku tulis saya."
+    },
+    {
+        "no": 27,
+        "v1": "Clothe",
+        "v2": "Clad",
+        "v3": "Clad",
+        "arti": "Menutupi",
+        "sent_v1": "Thick green vines clothe the old school fence.",
+        "trans_v1": "Tanaman merambat hijau tebal menutupi pagar sekolah lama.",
+        "sent_v2": "Soft morning fog clad the hills around our town.",
+        "trans_v2": "Kabut pagi yang lembut menutupi bukit di sekitar kota kami.",
+        "sent_v3": "Snow has clad the mountain peaks in white.",
+        "trans_v3": "Salju telah menutupi puncak gunung dengan warna putih."
+    },
+    {
+        "no": 28,
+        "v1": "Come",
+        "v2": "Came",
+        "v3": "Come",
+        "arti": "Datang",
+        "sent_v1": "Please come to the study group on time.",
+        "trans_v1": "Tolong datang ke kelompok belajar tepat waktu.",
+        "sent_v2": "He came to my house to study verbs yesterday.",
+        "trans_v2": "Dia datang ke rumah saya untuk belajar kata kerja kemarin.",
+        "sent_v3": "Many students have come to the library today.",
+        "trans_v3": "Banyak siswa telah datang ke perpustakaan hari ini."
+    },
+    {
+        "no": 29,
+        "v1": "Cost",
+        "v2": "Cost",
+        "v3": "Cost",
+        "arti": "Berharga",
+        "sent_v1": "A good dictionary can cost fifty thousand rupiah.",
+        "trans_v1": "Kamus yang bagus bisa berharga lima puluh ribu rupiah.",
+        "sent_v2": "The ticket to the science museum cost very little.",
+        "trans_v2": "Tiket ke museum sains berharga sangat murah.",
+        "sent_v3": "This study project has cost us much time and effort.",
+        "trans_v3": "Proyek belajar ini telah berharga banyak waktu dan usaha bagi kita."
+    },
+    {
+        "no": 30,
+        "v1": "Creep",
+        "v2": "Crept",
+        "v3": "Crept",
+        "arti": "Merangkak",
+        "sent_v1": "Small caterpillars creep slowly across the green leaf.",
+        "trans_v1": "Ulat kecil merangkak perlahan melintasi daun hijau.",
+        "sent_v2": "The cat crept silently toward the butterfly.",
+        "trans_v2": "Kucing itu merangkak diam-diam menuju kupu-kupu.",
+        "sent_v3": "The morning light has crept into our classroom.",
+        "trans_v3": "Cahaya pagi telah merangkak masuk ke ruang kelas kita."
+    },
+    {
+        "no": 31,
+        "v1": "Cut",
+        "v2": "Cut",
+        "v3": "Cut",
+        "arti": "Memotong",
+        "sent_v1": "Use scissors to cut the paper neatly.",
+        "trans_v1": "Gunakan gunting untuk memotong kertas dengan rapi.",
+        "sent_v2": "She cut the ribbon for the classroom decoration.",
+        "trans_v2": "Dia memotong pita untuk dekorasi kelas.",
+        "sent_v3": "We have cut the paper into small flashcard squares.",
+        "trans_v3": "Kami telah memotong kertas menjadi kotak flashcard kecil."
+    },
+    {
+        "no": 32,
+        "v1": "Deal",
+        "v2": "Dealt",
+        "v3": "Dealt",
+        "arti": "Sepakat",
+        "sent_v1": "We deal with difficult grammar rules by practicing.",
+        "trans_v1": "Kita sepakat mengatasi aturan tata bahasa sulit dengan berlatih.",
+        "sent_v2": "She dealt with the project tasks very efficiently.",
+        "trans_v2": "Dia sepakat menangani tugas proyek dengan sangat efisien.",
+        "sent_v3": "They have dealt fairly with all group members.",
+        "trans_v3": "Mereka telah sepakat berlaku adil dengan semua anggota kelompok."
+    },
+    {
+        "no": 33,
+        "v1": "Dig",
+        "v2": "Dug",
+        "v3": "Dug",
+        "arti": "Menggali",
+        "sent_v1": "We dig small holes to plant new trees in the yard.",
+        "trans_v1": "Kita menggali lubang kecil untuk menanam pohon baru di halaman.",
+        "sent_v2": "The gardener dug a trench for the flower garden.",
+        "trans_v2": "Tukang kebun menggali parit untuk taman bunga.",
+        "sent_v3": "They have dug the soil ready for planting.",
+        "trans_v3": "Mereka telah menggali tanah siap untuk penanaman."
+    },
+    {
+        "no": 34,
+        "v1": "Do",
+        "v2": "Did",
+        "v3": "Done",
+        "arti": "Mengerjakan",
+        "sent_v1": "I always do my English homework carefully.",
+        "trans_v1": "Saya selalu mengerjakan PR Bahasa Inggris dengan teliti.",
+        "sent_v2": "We did all ten grammar exercises last night.",
+        "trans_v2": "Kami mengerjakan semua sepuluh latihan tata bahasa tadi malam.",
+        "sent_v3": "She has done an excellent job on the presentation.",
+        "trans_v3": "Dia telah mengerjakan tugas yang luar biasa pada presentasi itu."
+    },
+    {
+        "no": 35,
+        "v1": "Draw",
+        "v2": "Drew",
+        "v3": "Drawn",
+        "arti": "Menggambar",
+        "sent_v1": "I like to draw doodles on my notebook cover.",
+        "trans_v1": "Saya suka menggambar coretan di sampul buku tulis saya.",
+        "sent_v2": "He drew a neat mind map for the irregular verbs.",
+        "trans_v2": "Dia menggambar peta konsep yang rapi untuk kata kerja tidak beraturan.",
+        "sent_v3": "We have drawn several diagrams to help us memorize.",
+        "trans_v3": "Kami telah menggambar beberapa diagram untuk membantu kami menghafal."
+    },
+    {
+        "no": 36,
+        "v1": "Dive",
+        "v2": "Dove",
+        "v3": "Dived",
+        "arti": "Menyelam",
+        "sent_v1": "Swimmers dive into the cool swimming pool.",
+        "trans_v1": "Para perenang menyelam ke dalam kolam renang yang dingin.",
+        "sent_v2": "She dove deep into the water to retrieve the coin.",
+        "trans_v2": "Dia menyelam dalam ke air untuk mengambil koin itu.",
+        "sent_v3": "He has dived in many beautiful coral reefs.",
+        "trans_v3": "Dia telah menyelam di banyak terumbu karang yang indah."
+    },
+    {
+        "no": 37,
+        "v1": "Dream",
+        "v2": "Dreamt",
+        "v3": "Dreamt",
+        "arti": "Mimpi",
+        "sent_v1": "I dream of getting the highest score in English.",
+        "trans_v1": "Saya mimpi mendapat nilai tertinggi dalam Bahasa Inggris.",
+        "sent_v2": "Last night I dreamt about visiting a foreign country.",
+        "trans_v2": "Tadi malam saya mimpi mengunjungi negara asing.",
+        "sent_v3": "She has dreamt of becoming an English teacher.",
+        "trans_v3": "Dia telah mimpi menjadi seorang guru Bahasa Inggris."
+    },
+    {
+        "no": 38,
+        "v1": "Drink",
+        "v2": "Drank",
+        "v3": "Drunk",
+        "arti": "Minum",
+        "sent_v1": "Drink enough warm water before studying.",
+        "trans_v1": "Minum cukup air hangat sebelum belajar.",
+        "sent_v2": "He drank a glass of fresh milk this morning.",
+        "trans_v2": "Dia minum segelas susu segar pagi ini.",
+        "sent_v3": "We have drunk herbal tea to stay focused.",
+        "trans_v3": "Kami telah minum teh herbal agar tetap fokus."
+    },
+    {
+        "no": 39,
+        "v1": "Drive",
+        "v2": "Drove",
+        "v3": "Driven",
+        "arti": "Menyetir",
+        "sent_v1": "My father can drive us to the book fair on Sunday.",
+        "trans_v1": "Ayah saya bisa menyetir kita ke pameran buku hari Minggu.",
+        "sent_v2": "She drove carefully along the rainy road.",
+        "trans_v2": "Dia menyetir dengan hati-hati di sepanjang jalan yang hujan.",
+        "sent_v3": "He has driven his car across several provinces.",
+        "trans_v3": "Dia telah menyetir mobilnya melintasi beberapa provinsi."
+    },
+    {
+        "no": 40,
+        "v1": "Dwell",
+        "v2": "Dwelt",
+        "v3": "Dwelt",
+        "arti": "Tinggal",
+        "sent_v1": "We dwell in a peaceful neighborhood near school.",
+        "trans_v1": "Kita tinggal di lingkungan tenang dekat sekolah.",
+        "sent_v2": "My grandparents dwelt in a traditional wooden house.",
+        "trans_v2": "Kakek nenek saya tinggal di rumah kayu tradisional.",
+        "sent_v3": "She has dwelt in Jakarta since she was a child.",
+        "trans_v3": "Dia telah tinggal di Jakarta sejak dia masih kecil."
+    },
+    {
+        "no": 41,
+        "v1": "Eat",
+        "v2": "Ate",
+        "v3": "Eaten",
+        "arti": "Makan",
+        "sent_v1": "We eat nutritious food to keep our brain active.",
+        "trans_v1": "Kita makan makanan bergizi untuk menjaga otak kita aktif.",
+        "sent_v2": "I ate a bowl of fried noodles for breakfast.",
+        "trans_v2": "Saya makan semangkuk mi goreng untuk sarapan.",
+        "sent_v3": "They have eaten their lunch together in the canteen.",
+        "trans_v3": "Mereka telah makan siang bersama di kantin."
+    },
+    {
+        "no": 42,
+        "v1": "Fall",
+        "v2": "Fell",
+        "v3": "Fallen",
+        "arti": "Jatuh",
+        "sent_v1": "Yellow leaves fall from the trees every dry season.",
+        "trans_v1": "Daun-daun kuning jatuh dari pohon setiap musim kemarau.",
+        "sent_v2": "An apple fell from the branch onto the grass.",
+        "trans_v2": "Sebuah apel jatuh dari dahan ke atas rumput.",
+        "sent_v3": "The temperature has fallen slightly this evening.",
+        "trans_v3": "Suhu telah jatuh sedikit sore ini."
+    },
+    {
+        "no": 43,
+        "v1": "Feed",
+        "v2": "Fed",
+        "v3": "Fed",
+        "arti": "Memberi makan",
+        "sent_v1": "I feed my pet fish every morning before school.",
+        "trans_v1": "Saya memberi makan ikan peliharaan saya setiap pagi sebelum sekolah.",
+        "sent_v2": "She fed the stray cats near the school gate.",
+        "trans_v2": "Dia memberi makan kucing liar dekat gerbang sekolah.",
+        "sent_v3": "We have fed the birds with seeds in the park.",
+        "trans_v3": "Kami telah memberi makan burung-burung dengan biji di taman."
+    },
+    {
+        "no": 44,
+        "v1": "Feel",
+        "v2": "Felt",
+        "v3": "Felt",
+        "arti": "Merasa",
+        "sent_v1": "I feel confident about the upcoming English exam.",
+        "trans_v1": "Saya merasa percaya diri tentang ujian Bahasa Inggris mendatang.",
+        "sent_v2": "He felt very happy after finishing the difficult task.",
+        "trans_v2": "Dia merasa sangat senang setelah menyelesaikan tugas sulit itu.",
+        "sent_v3": "We have felt the benefits of daily reading practice.",
+        "trans_v3": "Kami telah merasa manfaat dari latihan membaca harian."
+    },
+    {
+        "no": 45,
+        "v1": "Fight",
+        "v2": "Fought",
+        "v3": "Fought",
+        "arti": "Bertarung",
+        "sent_v1": "We must fight laziness to achieve our dreams.",
+        "trans_v1": "Kita harus bertarung melawan kemalasan untuk mencapai mimpi kita.",
+        "sent_v2": "The team fought bravely until the final minute.",
+        "trans_v2": "Tim itu bertarung dengan berani hingga menit terakhir.",
+        "sent_v3": "She has fought through every challenge successfully.",
+        "trans_v3": "Dia telah bertarung melewati setiap tantangan dengan sukses."
+    },
+    {
+        "no": 46,
+        "v1": "Find",
+        "v2": "Found",
+        "v3": "Found",
+        "arti": "Menemukan",
+        "sent_v1": "You can find many helpful tips in this study notebook.",
+        "trans_v1": "Kamu bisa menemukan banyak tips bermanfaat di buku catatan belajar ini.",
+        "sent_v2": "I found my lost pencil case under the desk yesterday.",
+        "trans_v2": "Saya menemukan kotak pensil saya yang hilang di bawah meja kemarin.",
+        "sent_v3": "We have found the correct answer to the riddle.",
+        "trans_v3": "Kami telah menemukan jawaban yang benar untuk teka-teki itu."
+    },
+    {
+        "no": 47,
+        "v1": "Fit",
+        "v2": "Fit",
+        "v3": "Fit",
+        "arti": "Cocok",
+        "sent_v1": "This dictionary can fit neatly inside your backpack.",
+        "trans_v1": "Kamus ini bisa cocok dengan rapi di dalam ranselmu.",
+        "sent_v2": "The new book cover fit my notebook perfectly.",
+        "trans_v2": "Sampul buku baru itu cocok dengan buku tulis saya secara sempurna.",
+        "sent_v3": "All fifty-two words have fit into our daily schedule.",
+        "trans_v3": "Semua lima puluh dua kata telah cocok ke dalam jadwal harian kita."
+    },
+    {
+        "no": 48,
+        "v1": "Flee",
+        "v2": "Fled",
+        "v3": "Fled",
+        "arti": "Kabur",
+        "sent_v1": "Small mice flee quickly when they see a cat.",
+        "trans_v1": "Tikus kecil kabur dengan cepat ketika mereka melihat kucing.",
+        "sent_v2": "The thief fled before the security guard arrived.",
+        "trans_v2": "Pencuri itu kabur sebelum satpam datang.",
+        "sent_v3": "The frightened deer has fled into the deep forest.",
+        "trans_v3": "Rusa yang ketakutan itu telah kabur ke dalam hutan lebat."
+    },
+    {
+        "no": 49,
+        "v1": "Fling",
+        "v2": "Flung",
+        "v3": "Flung",
+        "arti": "Melemparkan",
+        "sent_v1": "Do not fling your heavy school bag onto the floor.",
+        "trans_v1": "Jangan melemparkan tas sekolahmu yang berat ke lantai.",
+        "sent_v2": "He flung the pebble across the wide pond.",
+        "trans_v2": "Dia melemparkan kerikil ke seberang kolam yang luas.",
+        "sent_v3": "She has flung the windows open to let fresh air in.",
+        "trans_v3": "Dia telah melemparkan jendela terbuka agar udara segar masuk."
+    },
+    {
+        "no": 50,
+        "v1": "Fly",
+        "v2": "Flew",
+        "v3": "Flown",
+        "arti": "Terbang",
+        "sent_v1": "Birds fly high above our school building.",
+        "trans_v1": "Burung-burung terbang tinggi di atas gedung sekolah kita.",
+        "sent_v2": "The kite flew beautifully in the afternoon wind.",
+        "trans_v2": "Layang-layang terbang dengan indah di angin sore.",
+        "sent_v3": "We have flown paper planes in the schoolyard.",
+        "trans_v3": "Kami telah terbang (menerbangkan) pesawat kertas di halaman sekolah."
+    },
+    {
+        "no": 51,
+        "v1": "Forbid",
+        "v2": "Forbade",
+        "v3": "Forbidden",
+        "arti": "Melarang",
+        "sent_v1": "School rules forbid cheating during any examination.",
+        "trans_v1": "Aturan sekolah melarang menyontek selama ujian apa pun.",
+        "sent_v2": "The teacher forbade us to use phones during the test.",
+        "trans_v2": "Guru melarang kami memakai ponsel saat ujian.",
+        "sent_v3": "Smoking is strictly forbidden on school premises.",
+        "trans_v3": "Merokok sangat dilarang di kawasan sekolah."
+    },
+    {
+        "no": 52,
+        "v1": "Foresee",
+        "v2": "Foresaw",
+        "v3": "Foreseen",
+        "arti": "Meramalkan",
+        "sent_v1": "Wise students foresee the need to prepare early.",
+        "trans_v1": "Siswa yang bijak meramalkan perlunya bersiap sejak awal.",
+        "sent_v2": "She foresaw that the grammar test would be challenging.",
+        "trans_v2": "Dia meramalkan bahwa ujian tata bahasa akan menantang.",
+        "sent_v3": "We have foreseen great results from steady study.",
+        "trans_v3": "Kami telah meramalkan hasil luar biasa dari belajar yang konsisten."
+    }
+];
+
+        /* ==========================================================================
+           2. LOCAL STORAGE MANAGER
+           ========================================================================== */
+        const STORAGE_KEY_LEARNED = "doodle_learned_verbs_52";
+        const STORAGE_KEY_SCORES = "doodle_quiz_scores_52";
+        const STORAGE_KEY_TARGET = "doodle_daily_target_52";
+
+        let learnedVerbs = new Set();
+        let quizHistory = [];
+        let dailyTarget = 10;
+
+        function loadStorage() {
+            try {
+                const savedLearned = localStorage.getItem(STORAGE_KEY_LEARNED);
+                if (savedLearned) {
+                    learnedVerbs = new Set(JSON.parse(savedLearned));
+                }
+                const savedScores = localStorage.getItem(STORAGE_KEY_SCORES);
+                if (savedScores) {
+                    quizHistory = JSON.parse(savedScores);
+                }
+                const savedTarget = localStorage.getItem(STORAGE_KEY_TARGET);
+                if (savedTarget) {
+                    dailyTarget = parseInt(savedTarget, 10) || 10;
+                }
+            } catch (e) {
+                console.warn("Storage error, using defaults:", e);
+            }
+        }
+
+        function saveLearnedStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY_LEARNED, JSON.stringify(Array.from(learnedVerbs)));
+            } catch (e) {}
+            updateAllStatistics();
+        }
+
+        function saveScoresStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY_SCORES, JSON.stringify(quizHistory));
+            } catch (e) {}
+            updateAllStatistics();
+        }
+
+        function saveDailyTarget(val) {
+            dailyTarget = parseInt(val, 10) || 10;
+            try {
+                localStorage.setItem(STORAGE_KEY_TARGET, dailyTarget.toString());
+            } catch (e) {}
+            showToast("Target harian disimpan: " + dailyTarget + " kata per hari");
+            updateAllStatistics();
+        }
+
+        function toggleLearned(verbNo, silent = false) {
+            if (learnedVerbs.has(verbNo)) {
+                learnedVerbs.delete(verbNo);
+                if (!silent) showToast("Dihapus dari daftar Sudah Dipelajari.");
+            } else {
+                learnedVerbs.add(verbNo);
+                if (!silent) showToast("Tersimpan ke daftar Sudah Dipelajari!");
+            }
+            saveLearnedStorage();
+            renderVocabularyTable();
+            renderProgressSection();
+            if (currentModalVerb && currentModalVerb.no === verbNo) {
+                updateModalLearnedBtn();
+            }
+            updateFlashcardLearnedBtn();
+        }
+
+        /* ==========================================================================
+           3. TOAST FEEDBACK NOTIFICATIONS
+           ========================================================================== */
+        function showToast(message) {
+            const container = document.getElementById("toast-container");
+            const toast = document.createElement("div");
+            toast.className = "doodle-toast stabilo-yellow";
+            toast.innerText = message;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                toast.style.transform = "translateX(100%)";
+                toast.style.transition = "all 0.3s ease";
+                setTimeout(() => toast.remove(), 300);
+            }, 2600);
+        }
+
+        /* ==========================================================================
+           4. SECTION SWITCHER (NAVIGATION)
+           ========================================================================== */
+        function switchSection(sectionId) {
+            document.querySelectorAll(".section-view").forEach(sec => {
+                sec.classList.remove("active");
+            });
+            const targetSec = document.getElementById("section-" + sectionId);
+            if (targetSec) {
+                targetSec.classList.add("active");
+            }
+
+            document.querySelectorAll(".navbar .doodle-btn").forEach(btn => {
+                btn.classList.remove("active");
+            });
+            const activeBtn = document.getElementById("btn-nav-" + sectionId);
+            if (activeBtn) {
+                activeBtn.classList.add("active");
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (sectionId === "vocabulary") {
+                renderVocabularyTable();
+            } else if (sectionId === "flashcard") {
+                initFlashcards();
+            } else if (sectionId === "quiz") {
+                startQuizType(currentQuizType || 1);
+            } else if (sectionId === "progress") {
+                renderProgressSection();
+            } else if (sectionId === "minigame") {
+                if (!mgCards || mgCards.length === 0) {
+                    startMemoryGame("v1-arti", 6);
+                }
+            }
+            updateAllStatistics();
+        }
+
+        /* ==========================================================================
+           5. OVERALL STATISTICS & HOME WIDGETS
+           ========================================================================== */
+        function updateAllStatistics() {
+            const learnedCount = learnedVerbs.size;
+            const unlearnedCount = 52 - learnedCount;
+            const percentage = Math.round((learnedCount / 52) * 100);
+
+            const homeBar = document.getElementById("home-progress-bar");
+            if (homeBar) {
+                homeBar.style.width = percentage + "%";
+                homeBar.innerText = percentage + "%";
+            }
+            const statToday = document.getElementById("stat-today-target");
+            if (statToday) statToday.innerText = dailyTarget + " Kata";
+
+            const statLearned = document.getElementById("stat-learned-count");
+            if (statLearned) statLearned.innerText = learnedCount + " / 52";
+
+            const statUnlearned = document.getElementById("stat-unlearned-count");
+            if (statUnlearned) statUnlearned.innerText = unlearnedCount + " / 52";
+
+            const progBarMain = document.getElementById("prog-bar-main");
+            if (progBarMain) {
+                progBarMain.style.width = percentage + "%";
+                progBarMain.innerText = percentage + "% (" + learnedCount + "/52 Kata)";
+            }
+            const progLearnedNum = document.getElementById("prog-learned-num");
+            if (progLearnedNum) progLearnedNum.innerText = learnedCount;
+
+            const progUnlearnedNum = document.getElementById("prog-unlearned-num");
+            if (progUnlearnedNum) progUnlearnedNum.innerText = unlearnedCount;
+
+            const progAvgScore = document.getElementById("prog-avg-score");
+            const progTotalQuiz = document.getElementById("prog-total-quiz");
+            if (progAvgScore && progTotalQuiz) {
+                if (quizHistory.length > 0) {
+                    const sum = quizHistory.reduce((acc, curr) => acc + curr.score, 0);
+                    const avg = Math.round(sum / quizHistory.length);
+                    progAvgScore.innerText = avg;
+                    progTotalQuiz.innerText = quizHistory.length;
+                } else {
+                    progAvgScore.innerText = "0";
+                    progTotalQuiz.innerText = "0";
+                }
+            }
+
+            const dailySelect = document.getElementById("select-daily-target");
+            if (dailySelect) dailySelect.value = dailyTarget.toString();
+        }
+
+        function generateWordOfDay() {
+            const randIdx = Math.floor(Math.random() * VERBS_DATA.length);
+            const word = VERBS_DATA[randIdx];
+            const container = document.getElementById("word-of-day-content");
+            if (!container) return;
+
+            container.innerHTML = `
+                <div style="font-weight:900; font-size:1.4rem; margin-bottom:4px;">
+                    #${word.no}. ${word.v1} — ${word.v2} — ${word.v3} = <span class="stabilo-yellow">${word.arti}</span>
+                </div>
+                <div style="font-size:0.95rem; color:#444; font-style:italic;">
+                    "${word.sent_v1}" (${word.trans_v1})
+                </div>
+                <div style="margin-top:10px;">
+                    <button class="doodle-btn primary" style="padding:4px 12px; font-size:0.85rem;" onclick="openDetailModal(${word.no})">
+                        Lihat Contoh Kalimat V2 & V3
+                    </button>
+                </div>
+            `;
+        }
+
+        /* ==========================================================================
+           6. VOCABULARY SECTION CONTROLLER
+           ========================================================================== */
+        let currentVocabFilter = "all";
+        let currentVocabSort = "no";
+
+        function setVocabFilter(filterType) {
+            currentVocabFilter = filterType;
+            ["all", "learned", "unlearned"].forEach(type => {
+                const btn = document.getElementById("btn-filter-" + type);
+                if (btn) btn.classList.remove("active");
+            });
+            const activeBtn = document.getElementById("btn-filter-" + filterType);
+            if (activeBtn) activeBtn.classList.add("active");
+            renderVocabularyTable();
+        }
+
+        function setVocabSort(sortType) {
+            currentVocabSort = sortType;
+            ["no", "az"].forEach(type => {
+                const btn = document.getElementById("btn-sort-" + type);
+                if (btn) btn.classList.remove("active");
+            });
+            const activeBtn = document.getElementById("btn-sort-" + sortType);
+            if (activeBtn) activeBtn.classList.add("active");
+            renderVocabularyTable();
+        }
+
+        function renderVocabularyTable() {
+            const searchInput = document.getElementById("vocab-search");
+            const query = searchInput ? searchInput.value.trim().toLowerCase() : "";
+
+            let list = VERBS_DATA.filter(item => {
+                const isLearned = learnedVerbs.has(item.no);
+                if (currentVocabFilter === "learned" && !isLearned) return false;
+                if (currentVocabFilter === "unlearned" && isLearned) return false;
+
+                if (query) {
+                    const inV1 = item.v1.toLowerCase().includes(query);
+                    const inV2 = item.v2.toLowerCase().includes(query);
+                    const inV3 = item.v3.toLowerCase().includes(query);
+                    const inArti = item.arti.toLowerCase().includes(query);
+                    const inNo = item.no.toString() === query;
+                    return inV1 || inV2 || inV3 || inArti || inNo;
+                }
+                return true;
+            });
+
+            if (currentVocabSort === "az") {
+                list.sort((a, b) => a.v1.localeCompare(b.v1));
+            } else {
+                list.sort((a, b) => a.no - b.no);
+            }
+
+            const tbody = document.getElementById("vocab-table-body");
+            if (!tbody) return;
+
+            if (list.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 30px; font-weight: 700;">
+                            Tidak ada kosakata yang cocok dengan pencarianmu.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            let html = "";
+            list.forEach(item => {
+                const isLearned = learnedVerbs.has(item.no);
+                const rowClass = isLearned ? "learned" : "";
+                const badgeClass = isLearned ? "checked" : "";
+                const checkmarkIcon = isLearned ? `
+                    <svg class="svg-icon" style="width:18px;height:18px;" viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                ` : "";
+
+                html += `
+                    <tr class="${rowClass}" onclick="openDetailModal(${item.no})">
+                        <td style="font-weight:800;">${item.no}</td>
+                        <td style="font-weight:700;">${item.v1}</td>
+                        <td>${item.v2}</td>
+                        <td>${item.v3}</td>
+                        <td style="font-weight:700;">${item.arti}</td>
+                        <td style="text-align: center;" onclick="event.stopPropagation(); toggleLearned(${item.no});">
+                            <div class="check-badge ${badgeClass}">
+                                ${checkmarkIcon}
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            tbody.innerHTML = html;
+        }
+
+        /* ==========================================================================
+           7. DETAIL VOCAB POPUP MODAL
+           ========================================================================== */
+        let currentModalVerb = null;
+
+        function openDetailModal(verbNo) {
+            const verb = VERBS_DATA.find(v => v.no === verbNo);
+            if (!verb) return;
+            currentModalVerb = verb;
+
+            document.getElementById("mod-number").innerText = "No. " + verb.no;
+            document.getElementById("mod-v1").innerText = verb.v1;
+            document.getElementById("mod-v2").innerText = verb.v2;
+            document.getElementById("mod-v3").innerText = verb.v3;
+            document.getElementById("mod-arti").innerText = verb.arti;
+
+            document.getElementById("mod-sent-v1").innerText = verb.sent_v1;
+            document.getElementById("mod-trans-v1").innerText = verb.trans_v1;
+
+            document.getElementById("mod-sent-v2").innerText = verb.sent_v2;
+            document.getElementById("mod-trans-v2").innerText = verb.trans_v2;
+
+            document.getElementById("mod-sent-v3").innerText = verb.sent_v3;
+            document.getElementById("mod-trans-v3").innerText = verb.trans_v3;
+
+            updateModalLearnedBtn();
+
+            const modal = document.getElementById("modal-detail");
+            modal.classList.add("active");
+        }
+
+        function updateModalLearnedBtn() {
+            const btn = document.getElementById("mod-btn-learn");
+            if (!btn || !currentModalVerb) return;
+            const isLearned = learnedVerbs.has(currentModalVerb.no);
+            if (isLearned) {
+                btn.innerText = "Sudah Dipelajari (Klik untuk Hapus)";
+                btn.className = "doodle-btn danger";
+            } else {
+                btn.innerText = "Tandai Sudah Dipelajari";
+                btn.className = "doodle-btn success";
+            }
+        }
+
+        function toggleLearnedFromModal() {
+            if (!currentModalVerb) return;
+            toggleLearned(currentModalVerb.no);
+        }
+
+        function closeModal() {
+            document.getElementById("modal-detail").classList.remove("active");
+        }
+
+        function closeModalOnBg(event) {
+            if (event.target.id === "modal-detail") {
+                closeModal();
+            }
+        }
+
+        function speakCurrentModalWord() {
+            if (!currentModalVerb) return;
+            speakWord(currentModalVerb.v1);
+        }
+
+        function speakWord(text) {
+            if ("speechSynthesis" in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = "en-US";
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                showToast("Pengucapan: " + text);
+            }
+        }
+
+        /* ==========================================================================
+           8. FLASHCARD STUDIO CONTROLLER
+           ========================================================================== */
+        let flashcardDeck = [];
+        let currentFCIndex = 0;
+        let currentFCMode = 1;
+        let isFCFlipped = false;
+        let autoPlayTimer = null;
+
+        function setFlashcardMode(modeNum) {
+            currentFCMode = modeNum;
+            for (let i = 1; i <= 5; i++) {
+                const btn = document.getElementById("fc-mode-" + i);
+                if (btn) {
+                    if (i === modeNum) btn.classList.add("active");
+                    else btn.classList.remove("active");
+                }
+            }
+            updateFlashcardDisplay();
+        }
+
+        function initFlashcards() {
+            const filterEl = document.getElementById("flashcard-filter");
+            const filterVal = filterEl ? filterEl.value : "all";
+
+            flashcardDeck = VERBS_DATA.filter(item => {
+                const isLearned = learnedVerbs.has(item.no);
+                if (filterVal === "learned" && !isLearned) return false;
+                if (filterVal === "unlearned" && isLearned) return false;
+                return true;
+            });
+
+            if (flashcardDeck.length === 0) {
+                flashcardDeck = [...VERBS_DATA];
+            }
+
+            currentFCIndex = 0;
+            isFCFlipped = false;
+            updateFlashcardDisplay();
+        }
+
+        function flipCurrentCard() {
+            const bodyEl = document.getElementById("flashcard-body");
+            if (!bodyEl) return;
+            isFCFlipped = !isFCFlipped;
+            if (isFCFlipped) {
+                bodyEl.classList.add("is-flipped");
+            } else {
+                bodyEl.classList.remove("is-flipped");
+            }
+        }
+
+        function updateFlashcardDisplay() {
+            const bodyEl = document.getElementById("flashcard-body");
+            if (bodyEl) {
+                isFCFlipped = false;
+                bodyEl.classList.remove("is-flipped");
+            }
+
+            if (flashcardDeck.length === 0) return;
+            const verb = flashcardDeck[currentFCIndex];
+
+            const frontMain = document.getElementById("fc-front-main");
+            const frontSub = document.getElementById("fc-front-sub");
+            const backMain = document.getElementById("fc-back-main");
+            const backSub = document.getElementById("fc-back-sub");
+            const fcNum = document.getElementById("fc-number");
+            const fcNumBack = document.getElementById("fc-number-back");
+            const counterEl = document.getElementById("fc-counter");
+
+            if (fcNum) fcNum.innerText = "No. " + verb.no;
+            if (fcNumBack) fcNumBack.innerText = "No. " + verb.no;
+            if (counterEl) counterEl.innerText = `Kartu ${currentFCIndex + 1} dari ${flashcardDeck.length}`;
+
+            if (currentFCMode === 1) {
+                frontMain.innerText = verb.v1;
+                frontSub.innerText = "Verb 1 (Base form)";
+                backMain.innerText = verb.arti;
+                backSub.innerText = `${verb.v2} • ${verb.v3}`;
+            } else if (currentFCMode === 2) {
+                frontMain.innerText = verb.arti;
+                frontSub.innerText = "Arti Bahasa Indonesia";
+                backMain.innerText = verb.v1;
+                backSub.innerText = `${verb.v2} • ${verb.v3}`;
+            } else if (currentFCMode === 3) {
+                frontMain.innerText = verb.v1;
+                frontSub.innerText = "Verb 1 (Base form) • Apa Verb 2-nya?";
+                backMain.innerText = verb.v2;
+                backSub.innerText = `Verb 3: ${verb.v3} (${verb.arti})`;
+            } else if (currentFCMode === 4) {
+                frontMain.innerText = verb.v2;
+                frontSub.innerText = "Verb 2 (Past simple) • Apa Verb 3-nya?";
+                backMain.innerText = verb.v3;
+                backSub.innerText = `Verb 1: ${verb.v1} (${verb.arti})`;
+            } else if (currentFCMode === 5) {
+                frontMain.innerText = verb.v3;
+                frontSub.innerText = "Verb 3 (Past participle) • Apa Verb 1-nya?";
+                backMain.innerText = verb.v1;
+                backSub.innerText = `Verb 2: ${verb.v2} (${verb.arti})`;
+            }
+
+            updateFlashcardLearnedBtn();
+        }
+
+        function updateFlashcardLearnedBtn() {
+            const btn = document.getElementById("fc-btn-learn");
+            if (!btn || flashcardDeck.length === 0) return;
+            const verb = flashcardDeck[currentFCIndex];
+            const isLearned = learnedVerbs.has(verb.no);
+            if (isLearned) {
+                btn.innerText = "Sudah Dipelajari ✓ (Klik Hapus)";
+                btn.className = "doodle-btn danger";
+            } else {
+                btn.innerText = "Tandai Sudah Dipelajari";
+                btn.className = "doodle-btn success";
+            }
+        }
+
+        function toggleLearnedFromFlashcard(event) {
+            if (event) event.stopPropagation();
+            if (flashcardDeck.length === 0) return;
+            const verb = flashcardDeck[currentFCIndex];
+            toggleLearned(verb.no);
+        }
+
+        function nextFlashcard() {
+            if (flashcardDeck.length === 0) return;
+            currentFCIndex = (currentFCIndex + 1) % flashcardDeck.length;
+            updateFlashcardDisplay();
+        }
+
+        function prevFlashcard() {
+            if (flashcardDeck.length === 0) return;
+            currentFCIndex = (currentFCIndex - 1 + flashcardDeck.length) % flashcardDeck.length;
+            updateFlashcardDisplay();
+        }
+
+        function shuffleFlashcards() {
+            flashcardDeck.sort(() => Math.random() - 0.5);
+            currentFCIndex = 0;
+            updateFlashcardDisplay();
+            showToast("Urutan kartu berhasil diacak!");
+        }
+
+        function randomFlashcard() {
+            if (flashcardDeck.length === 0) return;
+            currentFCIndex = Math.floor(Math.random() * flashcardDeck.length);
+            updateFlashcardDisplay();
+        }
+
+        function toggleAutoPlay() {
+            const btn = document.getElementById("fc-btn-auto");
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+                if (btn) {
+                    btn.innerText = "Auto Play";
+                    btn.className = "doodle-btn info";
+                }
+                showToast("Auto Play dihentikan.");
+            } else {
+                if (btn) {
+                    btn.innerText = "Jeda Auto Play ||";
+                    btn.className = "doodle-btn danger";
+                }
+                showToast("Auto Play aktif! Kartu membalik otomatis setiap 3 detik.");
+                autoPlayTimer = setInterval(() => {
+                    if (!isFCFlipped) {
+                        flipCurrentCard();
+                    } else {
+                        nextFlashcard();
+                    }
+                }, 2800);
+            }
+        }
+
+        /* ==========================================================================
+           9. COMPREHENSIVE QUIZ CENTER (ALL 7 QUIZ TYPES)
+           ========================================================================== */
+        let currentQuizType = 1;
+        let quizQuestions = [];
+        let currentQIndex = 0;
+        let quizScore = 0;
+        let correctCount = 0;
+        let wrongCount = 0;
+        let userAnswersReview = [];
+
+        function startQuizType(typeNum) {
+            currentQuizType = typeNum;
+            for (let i = 1; i <= 8; i++) {
+                const btn = document.getElementById("btn-qz-" + i);
+                if (btn) {
+                    if (i === typeNum) btn.classList.add("active");
+                    else btn.classList.remove("active");
+                }
+            }
+
+            quizScore = 0;
+            correctCount = 0;
+            wrongCount = 0;
+            currentQIndex = 0;
+            userAnswersReview = [];
+            document.getElementById("btn-review-ans").style.display = "none";
+
+            if (typeNum === 1) buildMCQQuestions();
+            else if (typeNum === 2) buildFillBlankQuestions();
+            else if (typeNum === 3) buildMatchingQuiz();
+            else if (typeNum === 4) buildRearrangeQuestions();
+            else if (typeNum === 5) buildTrueFalseQuestions();
+            else if (typeNum === 6) buildMeaningQuestions();
+            else if (typeNum === 7) buildListeningQuestions();
+            else if (typeNum === 8) buildMixedQuestions();
+
+            updateQuizScoreBar();
+            renderCurrentQuestion();
+        }
+
+        function restartCurrentQuiz() {
+            startQuizType(currentQuizType);
+        }
+
+        function updateQuizScoreBar() {
+            const curNum = document.getElementById("qz-current-num");
+            const corrEl = document.getElementById("qz-correct");
+            const wrongEl = document.getElementById("qz-wrong");
+            const scoreEl = document.getElementById("qz-score");
+            const pctEl = document.getElementById("qz-percent");
+
+            const totalQ = quizQuestions.length || 10;
+            if (curNum) curNum.innerText = `${Math.min(currentQIndex + 1, totalQ)} / ${totalQ}`;
+            if (corrEl) corrEl.innerText = correctCount;
+            if (wrongEl) wrongEl.innerText = wrongCount;
+
+            const calcScore = Math.round((correctCount / totalQ) * 100);
+            if (scoreEl) scoreEl.innerText = calcScore;
+            if (pctEl) pctEl.innerText = calcScore + "%";
+        }
+
+        function getDistractors(correctItem, count, fieldKey = "v2") {
+            const others = VERBS_DATA.filter(i => i.no !== correctItem.no);
+            const shuffled = [...others].sort(() => Math.random() - 0.5);
+            const choices = [correctItem[fieldKey]];
+            for (let i = 0; i < count; i++) {
+                if (shuffled[i]) choices.push(shuffled[i][fieldKey]);
+            }
+            return choices.sort(() => Math.random() - 0.5);
+        }
+
+        function buildMCQQuestions() {
+            const shuffled = [...VERBS_DATA].sort(() => Math.random() - 0.5);
+            quizQuestions = shuffled.slice(0, 10).map(verb => {
+                const isV2 = Math.random() > 0.5;
+                const field = isV2 ? "v2" : "v3";
+                const questionText = isV2 ? `Verb 2 (Past Simple) dari kata "${verb.v1}" (${verb.arti}) adalah...`
+                                          : `Verb 3 (Past Participle) dari kata "${verb.v1}" (${verb.arti}) adalah...`;
+                const options = getDistractors(verb, 3, field);
+                return {
+                    type: 1,
+                    verb: verb,
+                    questionText: questionText,
+                    options: options,
+                    correctAnswer: verb[field]
+                };
+            });
+        }
+
+        function buildFillBlankQuestions() {
+            const shuffled = [...VERBS_DATA].sort(() => Math.random() - 0.5);
+            quizQuestions = shuffled.slice(0, 10).map(verb => {
+                const hideV2 = Math.random() > 0.5;
+                const questionText = hideV2 ? `Lengkapi bentuk yang kosong:
+${verb.v1} - ____ - ${verb.v3}`
+                                            : `Lengkapi bentuk yang kosong:
+${verb.v1} - ${verb.v2} - ____`;
+                return {
+                    type: 2,
+                    verb: verb,
+                    questionText: questionText,
+                    correctAnswer: hideV2 ? verb.v2 : verb.v3,
+                    hint: verb.arti
+                };
+            });
+        }
+
+        let matchLeftItems = [];
+        let matchRightItems = [];
+        let selectedLeft = null;
+
+        function buildMatchingQuiz() {
+            const shuffled = [...VERBS_DATA].sort(() => Math.random() - 0.5);
+            const pairs = shuffled.slice(0, 5);
+
+            matchLeftItems = pairs.map(p => ({ id: p.no, text: p.v1, matched: false }));
+            matchRightItems = pairs.map(p => ({ id: p.no, text: p.arti, matched: false }));
+            matchRightItems.sort(() => Math.random() - 0.5);
+
+            quizQuestions = pairs.map(p => ({
+                type: 3,
+                verb: p,
+                questionText: `Pasangkan kata kerja bahasa Inggris dengan artinya yang cocok!`,
+                pairsCount: pairs.length
+            }));
+        }
+
+        function buildRearrangeQuestions() {
+            const shuffled = [...VERBS_DATA].sort(() => Math.random() - 0.5);
+            quizQuestions = shuffled.slice(0, 10).map(verb => {
+                const forms = [verb.v1, verb.v2, verb.v3];
+                const scrambled = [...forms].sort(() => Math.random() - 0.5);
+                return {
+                    type: 4,
+                    verb: verb,
+                    questionText: `Susun kata acak di bawah ini menjadi urutan yang benar:
+Verb 1 → Verb 2 → Verb 3 (${verb.arti})`,
+                    scrambled: scrambled,
+                    correctOrder: forms
+                };
+            });
+        }
+
+        function buildTrueFalseQuestions() {
+            const shuffled = [...VERBS_DATA].sort(() => Math.random() - 0.5);
+            quizQuestions = shuffled.slice(0, 10).map(verb => {
+                const isTrue = Math.random() > 0.5;
+                let displayV2 = verb.v2;
+                let displayV3 = verb.v3;
+                if (!isTrue) {
+                    const otherVerb = VERBS_DATA[Math.floor(Math.random() * VERBS_DATA.length)];
+                    displayV2 = otherVerb.v2;
+                }
+                const statement = `${verb.v1} - ${displayV2} - ${displayV3}`;
+                return {
+                    type: 5,
+                    verb: verb,
+                    questionText: `Benar atau Salah susunan Irregular Verb di bawah ini?
+
+"${statement}" = ${verb.arti}`,
+                    isTrue: isTrue,
+                    correctAnswer: isTrue ? "BENAR" : "SALAH"
+                };
+            });
+        }
+
+        function buildMeaningQuestions() {
+            const shuffled = [...VERBS_DATA].sort(() => Math.random() - 0.5);
+            quizQuestions = shuffled.slice(0, 10).map(verb => {
+                const options = getDistractors(verb, 3, "arti");
+                return {
+                    type: 6,
+                    verb: verb,
+                    questionText: `Apa arti bahasa Indonesia dari Irregular Verb:
+"${verb.v1} - ${verb.v2} - ${verb.v3}"?`,
+                    options: options,
+                    correctAnswer: verb.arti
+                };
+            });
+        }
+
+        function buildListeningQuestions() {
+            const shuffled = [...VERBS_DATA].sort(() => Math.random() - 0.5);
+            quizQuestions = shuffled.slice(0, 10).map(verb => {
+                const options = getDistractors(verb, 3, "v2");
+                return {
+                    type: 7,
+                    verb: verb,
+                    questionText: `Tekan tombol Play, amati animasi & pengucapan kata dasar (Verb 1), lalu pilih bentuk Verb 2 yang tepat!`,
+                    spokenWord: verb.v1,
+                    options: options,
+                    correctAnswer: verb.v2
+                };
+            });
+        }
+
+        function buildMixedQuestions() {
+            buildMCQQuestions();
+            const q1 = quizQuestions.slice(0, 2);
+            buildFillBlankQuestions();
+            const q2 = quizQuestions.slice(0, 2);
+            buildTrueFalseQuestions();
+            const q3 = quizQuestions.slice(0, 2);
+            buildMeaningQuestions();
+            const q4 = quizQuestions.slice(0, 2);
+            buildListeningQuestions();
+            const q5 = quizQuestions.slice(0, 2);
+            quizQuestions = [...q1, ...q2, ...q3, ...q4, ...q5].sort(() => Math.random() - 0.5);
+        }
+
+        function renderCurrentQuestion() {
+            const area = document.getElementById("quiz-area");
+            if (!area) return;
+
+            if (currentQIndex >= quizQuestions.length) {
+                renderQuizComplete();
+                return;
+            }
+
+            const q = quizQuestions[currentQIndex];
+
+            if (q.type === 1 || q.type === 6) {
+                area.innerHTML = `
+                    <div class="question-text">${q.questionText}</div>
+                    <div class="options-grid">
+                        ${q.options.map(opt => `
+                            <button class="option-btn" onclick="submitMCQAnswer('${opt.replace(/'/g, "\'")}', '${q.correctAnswer.replace(/'/g, "\'")}')">
+                                <span class="stabilo-yellow" style="font-weight:900;">•</span>
+                                <span>${opt}</span>
+                            </button>
+                        `).join("")}
+                    </div>
+                `;
+            } else if (q.type === 2) {
+                area.innerHTML = `
+                    <div class="question-text">${q.questionText.replace(/\n/g, '<br>')}</div>
+                    <div style="margin: 20px 0; max-width: 400px;">
+                        <input type="text" id="fb-input" class="doodle-input" style="width:100%; font-size:1.2rem; text-align:center;" placeholder="Ketik bentuk kata kerja...">
+                        <div style="font-size:0.9rem; color:#666; margin-top:8px;">Arti: <b>${q.hint}</b></div>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="doodle-btn primary" onclick="submitFillBlankAnswer('${q.correctAnswer.replace(/'/g, "\'")}')">
+                            Periksa Jawaban
+                        </button>
+                    </div>
+                `;
+                const inp = document.getElementById("fb-input");
+                if (inp) {
+                    inp.focus();
+                    inp.addEventListener("keypress", (e) => {
+                        if (e.key === "Enter") submitFillBlankAnswer(q.correctAnswer);
+                    });
+                }
+            } else if (q.type === 3) {
+                renderMatchingBoard();
+            } else if (q.type === 4) {
+                area.innerHTML = `
+                    <div class="question-text">${q.questionText.replace(/\n/g, '<br>')}</div>
+                    <div id="rearrange-target" class="doodle-box" style="min-height:70px; display:flex; gap:12px; align-items:center; justify-content:center; background:#fffde7;">
+                        <span style="color:#888;">Klik kata-kata di bawah sesuai urutan...</span>
+                    </div>
+                    <div class="chips-container" id="rearrange-chips">
+                        ${q.scrambled.map(w => `
+                            <div class="word-chip" onclick="addRearrangeWord('${w}', this)">${w}</div>
+                        `).join("")}
+                    </div>
+                    <div style="display:flex; gap:10px; margin-top:20px;">
+                        <button class="doodle-btn" onclick="resetRearrange()">Reset Urutan</button>
+                        <button class="doodle-btn primary" onclick="checkRearrangeAnswer()">Periksa Urutan</button>
+                    </div>
+                `;
+                window.currentRearrangeWords = [];
+                window.currentCorrectOrder = q.correctOrder;
+            } else if (q.type === 5) {
+                area.innerHTML = `
+                    <div class="question-text">${q.questionText.replace(/\n/g, '<br>')}</div>
+                    <div class="options-grid" style="grid-template-columns: 1fr 1fr; max-width: 480px;">
+                        <button class="option-btn" style="justify-content:center;" onclick="submitMCQAnswer('BENAR', '${q.correctAnswer}')">
+                            <span class="stabilo-green" style="padding: 4px 12px; border-radius:6px;">BENAR (True)</span>
+                        </button>
+                        <button class="option-btn" style="justify-content:center;" onclick="submitMCQAnswer('SALAH', '${q.correctAnswer}')">
+                            <span class="stabilo-pink" style="padding: 4px 12px; border-radius:6px;">SALAH (False)</span>
+                        </button>
+                    </div>
+                `;
+            } else if (q.type === 7) {
+                area.innerHTML = `
+                    <div class="question-text">${q.questionText}</div>
+
+                    <div class="speaker-box">
+                        <button class="doodle-btn primary" style="font-size:1.1rem; padding: 12px 24px;" onclick="playDummyListening('${q.spokenWord}')">
+                            PLAY PRONUNCIATION
+                        </button>
+
+                        <div id="dummy-wave-box" style="display:none; margin-top: 16px;">
+                            <div style="font-size:1.4rem; font-weight:900;" class="stabilo-yellow" id="dummy-text">
+                                Pronounce: ${q.spokenWord}
+                            </div>
+                            <div class="wave-anim">
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="font-weight:800; margin-bottom:12px;">Pilih Verb 2 yang sesuai dengan kata yang diucapkan:</div>
+                    <div class="options-grid">
+                        ${q.options.map(opt => `
+                            <button class="option-btn" onclick="submitMCQAnswer('${opt.replace(/'/g, "\'")}', '${q.correctAnswer.replace(/'/g, "\'")}')">
+                                <span>${opt}</span>
+                            </button>
+                        `).join("")}
+                    </div>
+                `;
+            }
+
+            updateQuizScoreBar();
+        }
+
+        function renderMatchingBoard() {
+            const area = document.getElementById("quiz-area");
+            if (!area) return;
+
+            area.innerHTML = `
+                <div class="question-text">Pasangkan Verb bahasa Inggris (Kiri) dengan Artinya (Kanan) dengan mengeklik pasangannya!</div>
+                <div class="matching-grid">
+                    <div class="match-col" id="col-left">
+                        ${matchLeftItems.map(item => `
+                            <div class="match-item ${item.matched ? 'matched' : ''}" id="m-left-${item.id}" onclick="selectLeftMatch(${item.id})">
+                                ${item.text}
+                            </div>
+                        `).join("")}
+                    </div>
+                    <div class="match-col" id="col-right">
+                        ${matchRightItems.map(item => `
+                            <div class="match-item ${item.matched ? 'matched' : ''}" id="m-right-${item.id}" onclick="selectRightMatch(${item.id})">
+                                ${item.text}
+                            </div>
+                        `).join("")}
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectLeftMatch(id) {
+            const item = matchLeftItems.find(i => i.id === id);
+            if (!item || item.matched) return;
+            selectedLeft = id;
+            document.querySelectorAll("#col-left .match-item").forEach(el => el.classList.remove("selected"));
+            const el = document.getElementById("m-left-" + id);
+            if (el) el.classList.add("selected");
+        }
+
+        function selectRightMatch(id) {
+            const itemRight = matchRightItems.find(i => i.id === id);
+            if (!itemRight || itemRight.matched || selectedLeft === null) return;
+
+            if (selectedLeft === id) {
+                const lItem = matchLeftItems.find(i => i.id === id);
+                if (lItem) lItem.matched = true;
+                itemRight.matched = true;
+
+                correctCount++;
+                quizScore += 20;
+                showToast("Cocok! +20 Poin");
+
+                const allMatched = matchLeftItems.every(i => i.matched);
+                if (allMatched) {
+                    setTimeout(() => {
+                        currentQIndex = quizQuestions.length;
+                        renderQuizComplete();
+                    }, 600);
+                } else {
+                    renderMatchingBoard();
+                }
+            } else {
+                wrongCount++;
+                showToast("Belum cocok, coba pasangkan lagi!");
+                const rEl = document.getElementById("m-right-" + id);
+                if (rEl) {
+                    rEl.style.borderColor = "red";
+                    setTimeout(() => rEl.style.borderColor = "#222", 400);
+                }
+            }
+            updateQuizScoreBar();
+        }
+
+        function addRearrangeWord(word, btnEl) {
+            if (btnEl.style.opacity === "0.3") return;
+            btnEl.style.opacity = "0.3";
+            window.currentRearrangeWords.push(word);
+
+            const targetBox = document.getElementById("rearrange-target");
+            if (targetBox) {
+                targetBox.innerHTML = window.currentRearrangeWords.map((w, idx) => `
+                    <span class="doodle-btn primary" style="cursor:default;">${idx + 1}. ${w}</span>
+                `).join("");
+            }
+        }
+
+        function resetRearrange() {
+            window.currentRearrangeWords = [];
+            const targetBox = document.getElementById("rearrange-target");
+            if (targetBox) {
+                targetBox.innerHTML = `<span style="color:#888;">Klik kata-kata di bawah sesuai urutan...</span>`;
+            }
+            document.querySelectorAll("#rearrange-chips .word-chip").forEach(el => {
+                el.style.opacity = "1";
+            });
+        }
+
+        function checkRearrangeAnswer() {
+            if (!window.currentRearrangeWords || window.currentRearrangeWords.length !== 3) {
+                showToast("Pilih ketiga kata sampai urutan lengkap!");
+                return;
+            }
+            const correctOrder = window.currentCorrectOrder;
+            const isCorrect = window.currentRearrangeWords.every((w, idx) => w === correctOrder[idx]);
+
+            const q = quizQuestions[currentQIndex];
+            userAnswersReview.push({
+                question: q.questionText.replace(/<br>/g, ' '),
+                yourAnswer: window.currentRearrangeWords.join(" → "),
+                correctAnswer: correctOrder.join(" → "),
+                isCorrect: isCorrect
+            });
+
+            if (isCorrect) {
+                correctCount++;
+                showToast("Urutan Benar!");
+            } else {
+                wrongCount++;
+                showToast("Urutan kurang tepat. Yang benar: " + correctOrder.join(" → "));
+            }
+            updateQuizScoreBar();
+            setTimeout(() => {
+                currentQIndex++;
+                renderCurrentQuestion();
+            }, 900);
+        }
+
+        function playDummyListening(word) {
+            const waveBox = document.getElementById("dummy-wave-box");
+            if (waveBox) waveBox.style.display = "block";
+            speakWord(word);
+        }
+
+        function submitMCQAnswer(userAns, correctAns) {
+            const q = quizQuestions[currentQIndex];
+            const isCorrect = (userAns.toLowerCase() === correctAns.toLowerCase());
+
+            userAnswersReview.push({
+                question: q.questionText.replace(/<br>/g, ' '),
+                yourAnswer: userAns,
+                correctAnswer: correctAns,
+                isCorrect: isCorrect
+            });
+
+            const buttons = document.querySelectorAll("#quiz-area .option-btn");
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                const text = btn.innerText.replace("•\n", "").replace("• ", "").trim();
+                if (text === correctAns || btn.innerText.includes(correctAns)) {
+                    btn.classList.add("correct");
+                } else if (text === userAns && !isCorrect) {
+                    btn.classList.add("wrong");
+                }
+            });
+
+            if (isCorrect) {
+                correctCount++;
+                showToast("Benar! ✓");
+            } else {
+                wrongCount++;
+                showToast("Kurang tepat. Jawaban benar: " + correctAns);
+            }
+
+            updateQuizScoreBar();
+            setTimeout(() => {
+                currentQIndex++;
+                renderCurrentQuestion();
+            }, 1000);
+        }
+
+        function submitFillBlankAnswer(correctAns) {
+            const inp = document.getElementById("fb-input");
+            if (!inp) return;
+            const userAns = inp.value.trim();
+            if (!userAns) {
+                showToast("Ketik jawaban terlebih dahulu!");
+                return;
+            }
+
+            const q = quizQuestions[currentQIndex];
+            const isCorrect = (userAns.toLowerCase() === correctAns.toLowerCase());
+
+            userAnswersReview.push({
+                question: q.questionText.replace(/<br>/g, ' '),
+                yourAnswer: userAns,
+                correctAnswer: correctAns,
+                isCorrect: isCorrect
+            });
+
+            if (isCorrect) {
+                correctCount++;
+                showToast("Tepat Sekali! ✓");
+            } else {
+                wrongCount++;
+                showToast("Kurang tepat. Jawaban benar: " + correctAns);
+            }
+
+            updateQuizScoreBar();
+            setTimeout(() => {
+                currentQIndex++;
+                renderCurrentQuestion();
+            }, 1000);
+        }
+
+        function renderQuizComplete() {
+            const area = document.getElementById("quiz-area");
+            if (!area) return;
+
+            const totalQ = quizQuestions.length || 10;
+            const calcScore = Math.round((correctCount / totalQ) * 100);
+
+            quizHistory.push({
+                type: currentQuizType,
+                score: calcScore,
+                correct: correctCount,
+                wrong: wrongCount,
+                date: new Date().toLocaleDateString("id-ID")
+            });
+            saveScoresStorage();
+
+            document.getElementById("btn-review-ans").style.display = "inline-flex";
+
+            let congratsText = "Hebat! Pertahankan semangat belajarmu.";
+            if (calcScore === 100) {
+                congratsText = "Sempurna 100%! Kamu sudah siap ulangan sekolah!";
+            } else if (calcScore < 60) {
+                congratsText = "Jangan menyerah! Coba baca kembali daftar kosakata dan ulangi kuis ini.";
+            }
+
+            area.innerHTML = `
+                <div style="text-align: center; padding: 20px 0;">
+                    <div style="font-size:2.8rem; font-weight:900;" class="stabilo-yellow">
+                        Skor Kamu: ${calcScore}
+                    </div>
+                    <p style="font-size:1.2rem; margin:16px 0; font-weight:700;">${congratsText}</p>
+
+                    <div class="target-grid" style="max-width: 480px; margin: 20px auto;">
+                        <div class="target-item" style="background:#e8f5e9;">
+                            <div>Jawaban Benar</div>
+                            <div class="target-num" style="color:#2e7d32;">${correctCount}</div>
+                        </div>
+                        <div class="target-item" style="background:#fce4ec;">
+                            <div>Jawaban Salah</div>
+                            <div class="target-num" style="color:#c62828;">${wrongCount}</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:24px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+                        <button class="doodle-btn primary" onclick="showQuizReviewModal()">
+                            Lihat Pembahasan & Review Jawaban
+                        </button>
+                        <button class="doodle-btn success" onclick="restartCurrentQuiz()">
+                            Ulangi Quiz Ini
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showQuizReviewModal() {
+            const container = document.getElementById("review-list-container");
+            if (!container) return;
+
+            if (userAnswersReview.length === 0) {
+                container.innerHTML = `<div style="font-weight:700;">Belum ada jawaban yang tersimpan untuk di-review.</div>`;
+            } else {
+                container.innerHTML = userAnswersReview.map((item, idx) => `
+                    <div class="doodle-box" style="margin-bottom:10px; background: ${item.isCorrect ? '#e8f5e9' : '#fce4ec'};">
+                        <div style="font-weight:800; margin-bottom:6px;">Soal ${idx + 1}: ${item.question}</div>
+                        <div>Jawaban Kamu: <b>${item.yourAnswer}</b> ${item.isCorrect ? '✓ (Benar)' : '✗ (Salah)'}</div>
+                        ${!item.isCorrect ? `<div style="margin-top:4px; color:#2e7d32;"><b>Jawaban Benar:</b> ${item.correctAnswer}</div>` : ''}
+                    </div>
+                `).join("");
+            }
+
+            document.getElementById("modal-review").classList.add("active");
+        }
+
+        function closeReviewModal() {
+            document.getElementById("modal-review").classList.remove("active");
+        }
+
+        function closeReviewModalOnBg(event) {
+            if (event.target.id === "modal-review") {
+                closeReviewModal();
+            }
+        }
+
+        /* ==========================================================================
+           10. PROGRESS SECTION RENDERER & ACTIONS
+           ========================================================================== */
+        function renderProgressSection() {
+            updateAllStatistics();
+
+            const badge = document.getElementById("prog-learned-badge");
+            const listEl = document.getElementById("prog-learned-list");
+            if (!listEl) return;
+
+            const count = learnedVerbs.size;
+            if (badge) badge.innerText = count;
+
+            if (count === 0) {
+                listEl.innerHTML = `<p style="color:#666; font-style:italic;">Belum ada kata yang kamu tandai sebagai Sudah Dipelajari. Buka tab Vocabulary atau Flashcard untuk menandai kata!</p>`;
+                return;
+            }
+
+            const learnedArray = VERBS_DATA.filter(item => learnedVerbs.has(item.no));
+            listEl.innerHTML = learnedArray.map(item => `
+                <span class="doodle-btn success" style="font-size:0.9rem; padding:6px 12px;" onclick="openDetailModal(${item.no})">
+                    #${item.no}. ${item.v1} — ${item.arti} ✓
+                </span>
+            `).join("");
+        }
+
+        function confirmResetProgress() {
+            if (confirm("Apakah kamu yakin ingin menghapus seluruh catatan nilai dan kosakata yang sudah dipelajari dari buku ini?")) {
+                learnedVerbs.clear();
+                quizHistory = [];
+                try {
+                    localStorage.removeItem(STORAGE_KEY_LEARNED);
+                    localStorage.removeItem(STORAGE_KEY_SCORES);
+                } catch (e) {}
+                updateAllStatistics();
+                renderProgressSection();
+                showToast("Semua progress berhasil di-reset!");
+            }
+        }
+
+        /* ==========================================================================
+           11. MINI GAME MEMORY CARD CONTROLLER
+           ========================================================================== */
+        let mgCards = [];
+        let mgFlippedCards = [];
+        let mgMatchedPairs = 0;
+        let mgTotalPairs = 6;
+        let mgMoves = 0;
+        let mgTimerInterval = null;
+        let mgSeconds = 0;
+
+        function startMemoryGame(modeType, totalPairs = 6) {
+            mgTotalPairs = totalPairs;
+            mgMatchedPairs = 0;
+            mgMoves = 0;
+            mgFlippedCards = [];
+            mgSeconds = 0;
+            if (mgTimerInterval) clearInterval(mgTimerInterval);
+
+            ["btn-mg-mode-1", "btn-mg-mode-2", "btn-mg-mode-3"].forEach(id => {
+                const btn = document.getElementById(id);
+                if (btn) btn.classList.remove("active");
+            });
+            if (totalPairs === 6) document.getElementById("btn-mg-mode-1")?.classList.add("active");
+            else if (totalPairs === 8) document.getElementById("btn-mg-mode-2")?.classList.add("active");
+            else if (totalPairs === 10) document.getElementById("btn-mg-mode-3")?.classList.add("active");
+
+            const shuffled = [...VERBS_DATA].sort(() => Math.random() - 0.5);
+            const selectedWords = shuffled.slice(0, totalPairs);
+
+            let pairs = [];
+            selectedWords.forEach(w => {
+                if (modeType === "v1-arti") {
+                    pairs.push({ pairId: w.no, text: w.v1, sub: "English" });
+                    pairs.push({ pairId: w.no, text: w.arti, sub: "Indonesia" });
+                } else if (modeType === "v1-v2") {
+                    pairs.push({ pairId: w.no, text: w.v1, sub: "Verb 1" });
+                    pairs.push({ pairId: w.no, text: w.v2, sub: "Verb 2" });
+                } else {
+                    pairs.push({ pairId: w.no, text: w.v2, sub: "Verb 2" });
+                    pairs.push({ pairId: w.no, text: w.v3, sub: "Verb 3" });
+                }
+            });
+
+            mgCards = pairs.sort(() => Math.random() - 0.5);
+            renderMemoryBoard();
+            updateMemoryStats();
+
+            mgTimerInterval = setInterval(() => {
+                mgSeconds++;
+                updateMemoryStats();
+            }, 1000);
+        }
+
+        function restartMemoryGame() {
+            startMemoryGame("v1-arti", mgTotalPairs);
+        }
+
+        function updateMemoryStats() {
+            const movesEl = document.getElementById("mg-moves");
+            const matchedEl = document.getElementById("mg-matched");
+            const timerEl = document.getElementById("mg-timer");
+
+            if (movesEl) movesEl.innerText = mgMoves;
+            if (matchedEl) matchedEl.innerText = `${mgMatchedPairs} / ${mgTotalPairs}`;
+
+            if (timerEl) {
+                const mins = Math.floor(mgSeconds / 60).toString().padStart(2, "0");
+                const secs = (mgSeconds % 60).toString().padStart(2, "0");
+                timerEl.innerText = `${mins}:${secs}`;
+            }
+        }
+
+        function renderMemoryBoard() {
+            const board = document.getElementById("memory-board");
+            if (!board) return;
+
+            board.innerHTML = mgCards.map((card, idx) => `
+                <div class="memory-card" id="mg-card-${idx}" onclick="flipMemoryCard(${idx})">
+                    <div class="memory-card-inner">
+                        <div class="memory-face memory-front">
+                            ?
+                        </div>
+                        <div class="memory-face memory-back">
+                            <div>
+                                <div style="font-size:1.1rem;">${card.text}</div>
+                                <div style="font-size:0.75rem; color:#666;">${card.sub}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        function flipMemoryCard(cardIdx) {
+            const cardEl = document.getElementById("mg-card-" + cardIdx);
+            if (!cardEl || cardEl.classList.contains("flipped") || cardEl.classList.contains("matched") || mgFlippedCards.length >= 2) {
+                return;
+            }
+
+            cardEl.classList.add("flipped");
+            mgFlippedCards.push({ index: cardIdx, card: mgCards[cardIdx] });
+
+            if (mgFlippedCards.length === 2) {
+                mgMoves++;
+                updateMemoryStats();
+
+                const c1 = mgFlippedCards[0];
+                const c2 = mgFlippedCards[1];
+
+                if (c1.card.pairId === c2.card.pairId && c1.card.text !== c2.card.text) {
+                    mgMatchedPairs++;
+                    setTimeout(() => {
+                        document.getElementById("mg-card-" + c1.index)?.classList.add("matched");
+                        document.getElementById("mg-card-" + c2.index)?.classList.add("matched");
+                        mgFlippedCards = [];
+                        updateMemoryStats();
+
+                        if (mgMatchedPairs === mgTotalPairs) {
+                            if (mgTimerInterval) clearInterval(mgTimerInterval);
+                            showToast("Luar Biasa! Semua kartu berhasil dipasangkan!");
+                        }
+                    }, 450);
+                } else {
+                    setTimeout(() => {
+                        document.getElementById("mg-card-" + c1.index)?.classList.remove("flipped");
+                        document.getElementById("mg-card-" + c2.index)?.classList.remove("flipped");
+                        mgFlippedCards = [];
+                    }, 1000);
+                }
+            }
+        }
+
+        /* ==========================================================================
+           12. INITIALIZATION ON DOM LOAD
+           ========================================================================== */
+        window.addEventListener("DOMContentLoaded", () => {
+            loadStorage();
+            generateWordOfDay();
+            updateAllStatistics();
+            renderVocabularyTable();
+            initFlashcards();
+        });
+    </script>
+</body>
+</html>
+    
