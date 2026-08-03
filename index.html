@@ -59,17 +59,13 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
+
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
 
-/* ============================================================
-   HEADER
-   ============================================================ */
+
 .header {
   position: fixed;
   top: 0;
@@ -119,13 +115,9 @@ body {
 .logo-icon {
   width: 36px;
   height: 36px;
-  background: var(--primary);
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .header-right {
@@ -161,9 +153,7 @@ body {
   font-weight: 600;
 }
 
-/* ============================================================
-   SIDEBAR
-   ============================================================ */
+
 .sidebar {
   position: fixed;
   top: var(--header-height);
@@ -239,9 +229,7 @@ body {
   font-weight: 600;
 }
 
-/* ============================================================
-   MAIN CONTENT
-   ============================================================ */
+
 .main {
   margin-left: var(--sidebar-width);
   margin-top: var(--header-height);
@@ -250,9 +238,7 @@ body {
   transition: margin-left 0.3s ease;
 }
 
-/* ============================================================
-   PAGE / SECTION
-   ============================================================ */
+
 .page {
   display: none;
   animation: fadeIn 0.3s ease;
@@ -265,9 +251,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================================
-   CARDS
-   ============================================================ */
+
 .card {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -318,9 +302,7 @@ body {
   color: var(--text-secondary);
 }
 
-/* ============================================================
-   BUTTONS
-   ============================================================ */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -382,9 +364,7 @@ body {
   justify-content: center;
 }
 
-/* ============================================================
-   GRID LAYOUTS
-   ============================================================ */
+
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -403,9 +383,7 @@ body {
   gap: 20px;
 }
 
-/* ============================================================
-   DASHBOARD WELCOME
-   ============================================================ */
+
 .welcome-banner {
   background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
   border-radius: var(--radius);
@@ -438,9 +416,7 @@ body {
   font-size: 15px;
 }
 
-/* ============================================================
-   STAT CARDS
-   ============================================================ */
+
 .stat-card {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -480,9 +456,7 @@ body {
   color: var(--text-secondary);
 }
 
-/* ============================================================
-   PROGRESS BAR
-   ============================================================ */
+
 .progress-bar-container {
   background: var(--bg);
   border-radius: 10px;
@@ -501,9 +475,7 @@ body {
 .progress-bar.red { background: linear-gradient(90deg, var(--red), var(--orange)); }
 .progress-bar.yellow { background: linear-gradient(90deg, var(--yellow), var(--orange)); }
 
-/* ============================================================
-   MATERIAL CARDS (Topic Cards)
-   ============================================================ */
+
 .topic-card {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -552,9 +524,7 @@ body {
   justify-content: space-between;
 }
 
-/* ============================================================
-   MATERIAL CONTENT
-   ============================================================ */
+
 .material-content {
   max-width: 850px;
 }
@@ -598,7 +568,7 @@ body {
   line-height: 1.6;
 }
 
-/* Info Box */
+
 .info-box {
   background: #E8F0FE;
   border-left: 4px solid var(--primary);
@@ -647,7 +617,7 @@ body {
   color: var(--primary-light);
 }
 
-/* Example Box */
+
 .example-box {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -674,7 +644,7 @@ body {
   color: var(--green);
 }
 
-/* Formula Box */
+
 .formula-box {
   background: linear-gradient(135deg, #E8F0FE, #E6F4EA);
   border-radius: var(--radius);
@@ -697,7 +667,7 @@ body {
   margin: 8px 0;
 }
 
-/* Why Box */
+
 .why-box {
   background: #FFF8E1;
   border: 1px solid #FFE082;
@@ -720,7 +690,7 @@ body {
   gap: 8px;
 }
 
-/* Comparison Table */
+
 .compare-table {
   width: 100%;
   border-collapse: collapse;
@@ -755,7 +725,7 @@ body {
   background: rgba(66,133,244,0.1);
 }
 
-/* Timeline / Flow */
+
 .timeline {
   position: relative;
   padding-left: 40px;
@@ -802,9 +772,7 @@ body {
   margin-bottom: 4px;
 }
 
-/* ============================================================
-   TAB SYSTEM
-   ============================================================ */
+
 .tabs {
   display: flex;
   gap: 4px;
@@ -847,9 +815,7 @@ body {
   display: block;
 }
 
-/* ============================================================
-   SEARCH BOX
-   ============================================================ */
+
 .search-box {
   position: relative;
   margin-bottom: 16px;
@@ -882,9 +848,7 @@ body {
   font-size: 16px;
 }
 
-/* ============================================================
-   TAGS / CHIPS
-   ============================================================ */
+
 .tag {
   display: inline-flex;
   align-items: center;
@@ -913,9 +877,7 @@ body {
   margin-bottom: 16px;
 }
 
-/* ============================================================
-   FLASHCARD
-   ============================================================ */
+
 .flashcard-container {
   perspective: 1000px;
   width: 100%;
@@ -975,9 +937,7 @@ body {
   color: var(--text-secondary);
 }
 
-/* ============================================================
-   QUIZ STYLES
-   ============================================================ */
+
 .quiz-container {
   max-width: 800px;
 }
@@ -1071,7 +1031,7 @@ body {
   color: white;
 }
 
-/* Explanation Box */
+
 .explanation-box {
   margin-top: 16px;
   padding: 16px;
@@ -1094,7 +1054,7 @@ body {
   color: var(--red);
 }
 
-/* Essay input */
+
 .essay-input {
   width: 100%;
   padding: 14px 16px;
@@ -1115,7 +1075,7 @@ body {
   box-shadow: 0 0 0 3px rgba(66,133,244,0.15);
 }
 
-/* Fill in the blank */
+
 .fill-blank-input {
   display: inline-block;
   padding: 4px 12px;
@@ -1136,7 +1096,7 @@ body {
   box-shadow: 0 0 0 3px rgba(66,133,244,0.15);
 }
 
-/* Drag and Drop */
+
 .drag-container {
   display: flex;
   flex-wrap: wrap;
@@ -1183,9 +1143,7 @@ body {
   font-style: italic;
 }
 
-/* ============================================================
-   WRITING MODE
-   ============================================================ */
+
 .writing-score {
   display: flex;
   gap: 16px;
@@ -1219,9 +1177,7 @@ body {
 .score-item .score-value.warn { color: var(--yellow); }
 .score-item .score-value.bad { color: var(--red); }
 
-/* ============================================================
-   RESULTS / SCORE PAGE
-   ============================================================ */
+
 .result-header {
   text-align: center;
   padding: 40px 20px;
@@ -1255,9 +1211,7 @@ body {
   backdrop-filter: blur(4px);
 }
 
-/* ============================================================
-   IRREGULAR VERB TABLE
-   ============================================================ */
+
 .verb-table {
   width: 100%;
   border-collapse: collapse;
@@ -1321,9 +1275,7 @@ body {
   border: 1px solid var(--border);
 }
 
-/* ============================================================
-   MEMORIZATION MODE
-   ============================================================ */
+
 .memo-input-group {
   display: flex;
   flex-direction: column;
@@ -1365,9 +1317,7 @@ body {
   background: #FCE8E6;
 }
 
-/* ============================================================
-   TIMER
-   ============================================================ */
+
 .timer {
   display: flex;
   align-items: center;
@@ -1388,9 +1338,7 @@ body {
   50% { opacity: 0.6; }
 }
 
-/* ============================================================
-   NOTIFICATION / TOAST
-   ============================================================ */
+
 .toast {
   position: fixed;
   bottom: 24px;
@@ -1416,9 +1364,7 @@ body {
 .toast.success { background: var(--green); color: white; }
 .toast.error { background: var(--red); color: white; }
 
-/* ============================================================
-   MODAL
-   ============================================================ */
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -1450,9 +1396,7 @@ body {
   margin-bottom: 16px;
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -1516,9 +1460,7 @@ body {
   .quiz-question-card { padding: 16px; }
 }
 
-/* ============================================================
-   UTILITY CLASSES
-   ============================================================ */
+
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 .mt-8 { margin-top: 8px; }
@@ -1544,9 +1486,7 @@ body {
 .hidden { display: none !important; }
 .w-full { width: 100%; }
 
-/* ============================================================
-   NAV (BREADCRUMB)
-   ============================================================ */
+
 .breadcrumb {
   display: flex;
   align-items: center;
@@ -1564,9 +1504,7 @@ body {
 
 .breadcrumb a:hover { text-decoration: underline; }
 
-/* ============================================================
-   QUESTION TYPE BADGE
-   ============================================================ */
+
 .qtype-badge {
   display: inline-flex;
   align-items: center;
@@ -1584,7 +1522,7 @@ body {
 .qtype-badge.arrange { background: #FCE8E6; color: var(--red); }
 .qtype-badge.drag { background: #FEF7E0; color: #F9A825; }
 
-/* Table of content links */
+
 .toc-link {
   display: flex;
   align-items: center;
@@ -1622,7 +1560,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Difficulty badge */
+
 .diff-badge {
   display: inline-flex;
   padding: 2px 8px;
@@ -1635,7 +1573,7 @@ body {
 .diff-badge.medium { background: #FEF7E0; color: #F9A825; }
 .diff-badge.hard { background: #FCE8E6; color: var(--red); }
 
-/* Sentence builder */
+
 .sentence-builder {
   display: flex;
   flex-wrap: wrap;
@@ -1676,7 +1614,7 @@ body {
   border-color: var(--primary);
 }
 
-/* Recommendation list */
+
 .rec-list {
   list-style: none;
   padding: 0;
@@ -1706,9 +1644,7 @@ body {
   flex-shrink: 0;
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
+
 .site-footer {
   background: var(--card-bg);
   border-top: 1px solid var(--border);
@@ -1738,7 +1674,6 @@ body {
 .footer-logo .logo-icon {
   width: 32px;
   height: 32px;
-  font-size: 16px;
 }
 
 .footer-links {
@@ -1805,14 +1740,12 @@ body {
 </head>
 <body>
 
-<!-- ============================================================
-     HEADER
-     ============================================================ -->
+
 <header class="header">
   <div class="header-left">
     <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
     <a class="logo" href="#" onclick="showPage('dashboard')">
-      <div class="logo-icon">📘</div>
+      <img class="logo-icon" src="EnglishPRO.png" alt="EnglishPro">
       <span>EnglishPro</span>
     </a>
   </div>
@@ -1826,19 +1759,17 @@ body {
   </div>
 </header>
 
-<!-- ============================================================
-     SIDEBAR
-     ============================================================ -->
+
 <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 <aside class="sidebar" id="sidebar">
-  <!-- Dashboard -->
+  
   <div class="sidebar-section">
     <a class="sidebar-item active" data-page="dashboard" onclick="showPage('dashboard')">
       <span class="icon">🏠</span> Dashboard
     </a>
   </div>
 
-  <!-- Materi -->
+  
   <div class="sidebar-section">
     <div class="sidebar-section-title">📖 Materi</div>
     <a class="sidebar-item" data-page="simple-present" onclick="showPage('simple-present')">
@@ -1855,7 +1786,7 @@ body {
     </a>
   </div>
 
-  <!-- Irregular Verb -->
+  
   <div class="sidebar-section">
     <div class="sidebar-section-title">📚 Irregular Verb</div>
     <a class="sidebar-item" data-page="irregular-verb" onclick="showPage('irregular-verb')">
@@ -1875,7 +1806,7 @@ body {
     </a>
   </div>
 
-  <!-- Quiz -->
+  
   <div class="sidebar-section">
     <div class="sidebar-section-title">🧠 Quiz</div>
     <a class="sidebar-item" data-page="quiz" onclick="showPage('quiz')">
@@ -1889,7 +1820,7 @@ body {
     </a>
   </div>
 
-  <!-- Progress -->
+  
   <div class="sidebar-section">
     <div class="sidebar-section-title">📈 Progress</div>
     <a class="sidebar-item" data-page="progress" onclick="showPage('progress')">
@@ -1898,21 +1829,17 @@ body {
   </div>
 </aside>
 
-<!-- ============================================================
-     MAIN CONTENT
-     ============================================================ -->
+
 <main class="main" id="mainContent">
 
-  <!-- ============================================================
-       DASHBOARD PAGE
-       ============================================================ -->
+  
   <div class="page active" id="page-dashboard">
     <div class="welcome-banner">
       <h1>👋 Selamat Datang, Sobat English!</h1>
       <p>Siap belajar bahasa Inggris untuk persiapan ulangan? Yuk mulai sekarang!</p>
     </div>
 
-    <!-- Stats -->
+    
     <div class="grid-4 mb-24" id="dashboardStats">
       <div class="stat-card">
         <div class="stat-icon" style="background:#E8F0FE;color:var(--primary)">📖</div>
@@ -1944,7 +1871,7 @@ body {
       </div>
     </div>
 
-    <!-- Materi Cards -->
+    
     <h2 style="font-size:20px; font-weight:600; margin-bottom:16px;">📖 Materi Pembelajaran</h2>
     <div class="grid-3 mb-24">
       <div class="topic-card" onclick="showPage('simple-present')">
@@ -1985,7 +1912,7 @@ body {
       </div>
     </div>
 
-    <!-- Quick Actions -->
+    
     <h2 style="font-size:20px; font-weight:600; margin-bottom:16px;">⚡ Aksi Cepat</h2>
     <div class="grid-3">
       <div class="topic-card" onclick="showPage('quiz')">
@@ -2006,9 +1933,7 @@ body {
     </div>
   </div>
 
-  <!-- ============================================================
-       SIMPLE PRESENT TENSE (VERB)
-       ============================================================ -->
+  
   <div class="page" id="page-simple-present">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -2022,7 +1947,7 @@ body {
         Simple Present Tense digunakan untuk menyatakan kebiasaan, fakta, dan kejadian yang terjadi secara rutin.
       </p>
 
-      <!-- Rumus -->
+      
       <h2>📐 Rumus</h2>
       <div class="formula-box">
         <div>Simple Present Tense (Verb)</div>
@@ -2039,7 +1964,7 @@ body {
         </ul>
       </div>
 
-      <!-- Penjelasan Subject + Verb -->
+      
       <h2>👤 Penjelasan Subject + Verb</h2>
       <p>Dalam Simple Present Tense, <strong>verb (kata kerja)</strong> yang digunakan adalah <strong>Verb 1</strong> (bentuk dasar kata kerja).</p>
 
@@ -2048,7 +1973,7 @@ body {
         <p style="margin-top:4px;">Jika subject-nya adalah <strong>He, She, It</strong> (orang ketiga tunggal), maka verb-nya diberi tambahan <strong>-s</strong> atau <strong>-es</strong>.</p>
       </div>
 
-      <!-- Aturan S/ES -->
+      
       <h2>➕ Aturan Penambahan -S / -ES</h2>
       
       <h3>1️⃣ Verb + S</h3>
@@ -2085,7 +2010,7 @@ body {
         <br>Contoh: play → play<strong>s</strong>, stay → stay<strong>s</strong>
       </div>
 
-      <!-- Contoh Lengkap -->
+      
       <h2>💡 Contoh Kalimat Lengkap</h2>
       
       <div class="example-box">
@@ -2112,7 +2037,7 @@ body {
         <div class="note">✅ Subject "He" → "study" berubah menjadi "stud<strong>ies</strong>"</div>
       </div>
 
-      <!-- Kenapa "eat" berubah jadi "eats" -->
+      
       <h2>❓ Kenapa "eat" berubah menjadi "eats"?</h2>
       <div class="why-box">
         <div class="title">🤔 Penjelasan Mendalam</div>
@@ -2128,7 +2053,7 @@ body {
         </ul>
       </div>
 
-      <!-- Kenapa menggunakan Verb -->
+      
       <h2>🔍 Kenapa Menggunakan Verb?</h2>
       <div class="why-box">
         <div class="title">🤔 Kenapa Verb?</div>
@@ -2142,7 +2067,7 @@ body {
         <p style="margin-top:8px;">Kalau tidak ada aksi/kegiatan, kita menggunakan <strong>To Be</strong> (am/is/are), bukan Verb. Ini akan dibahas di materi Simple Present Non-Verb.</p>
       </div>
 
-      <!-- Negative & Interrogative -->
+      
       <h2>❌ Negatif & ❓ Tanya</h2>
       <div class="formula-box">
         <div>Negatif</div>
@@ -2165,7 +2090,7 @@ body {
         <p>✅ She does not <strong>play</strong> football.</p>
       </div>
 
-      <!-- Tanda waktu -->
+      
       <h2>⏰ Tanda Waktu (Time Signals)</h2>
       <div class="flex flex-wrap gap-8">
         <span class="tag">every day</span>
@@ -2181,7 +2106,7 @@ body {
         <span class="tag">never</span>
       </div>
 
-      <!-- Flow diagram -->
+      
       <h2>📊 Diagram Alur: Cara Membuat Kalimat</h2>
       <div class="timeline">
         <div class="timeline-item">
@@ -2208,7 +2133,7 @@ body {
         </div>
       </div>
 
-      <!-- Mark as learned -->
+      
       <div class="text-center mt-24">
         <button class="btn btn-green" onclick="markMateriLearned('simple-present')">
           ✅ Tandai Sudah Dipelajari
@@ -2217,9 +2142,7 @@ body {
     </div>
   </div>
 
-  <!-- ============================================================
-       SIMPLE PRESENT (NON VERB)
-       ============================================================ -->
+  
   <div class="page" id="page-simple-present-nonverb">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -2250,7 +2173,7 @@ body {
         </ul>
       </div>
 
-      <!-- To Be Table -->
+      
       <h2>📋 Kapan Pakai AM / IS / ARE?</h2>
       <table class="compare-table">
         <tr><th>To Be</th><th>Subject</th><th>Contoh</th><th>Arti</th></tr>
@@ -2259,7 +2182,7 @@ body {
         <tr><td><strong style="color:var(--primary);font-size:18px;">ARE</strong></td><td>You, We, They</td><td>They <strong>are</strong> students.</td><td>Mereka adalah murid.</td></tr>
       </table>
 
-      <!-- Flow Diagram for To Be Selection -->
+      
       <h2>📊 Diagram: Memilih To Be yang Tepat</h2>
       <div class="timeline">
         <div class="timeline-item">
@@ -2280,7 +2203,7 @@ body {
         </div>
       </div>
 
-      <!-- Contoh Mendalam -->
+      
       <h2>💡 Contoh Kalimat Lengkap</h2>
 
       <div class="example-box">
@@ -2307,7 +2230,7 @@ body {
         <div class="note">✅ Subject "He" → menggunakan <strong>is</strong>. "at home" menunjukkan lokasi.</div>
       </div>
 
-      <!-- Kenapa am/is/are -->
+      
       <h2>❓ Kenapa Menggunakan am/is/are?</h2>
       <div class="why-box">
         <div class="title">🤔 Penjelasan Mendalam</div>
@@ -2335,7 +2258,7 @@ body {
         </ul>
       </div>
 
-      <!-- Negatif & Tanya -->
+      
       <h2>❌ Negatif & ❓ Tanya</h2>
       <table class="compare-table">
         <tr><th>Jenis</th><th>I</th><th>He/She/It</th><th>You/We/They</th></tr>
@@ -2344,7 +2267,7 @@ body {
         <tr><td>Tanya</td><td><strong>Am</strong> I happy?</td><td><strong>Is</strong> she happy?</td><td><strong>Are</strong> they happy?</td></tr>
       </table>
 
-      <!-- Contractions -->
+      
       <h2>✂️ Singkatan (Contractions)</h2>
       <table class="compare-table">
         <tr><th>Full Form</th><th>Contraction</th><th>Negatif</th></tr>
@@ -2357,7 +2280,7 @@ body {
         <tr><td>They are</td><td>They're</td><td>They aren't</td></tr>
       </table>
 
-      <!-- Verb vs To Be comparison -->
+      
       <h2>⚖️ Kapan Pakai Verb vs To Be?</h2>
       <div class="info-box yellow">
         <strong>📌 Rumus Mudah:</strong>
@@ -2382,9 +2305,7 @@ body {
     </div>
   </div>
 
-  <!-- ============================================================
-       PRESENT CONTINUOUS
-       ============================================================ -->
+  
   <div class="page" id="page-present-continuous">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -2414,7 +2335,7 @@ body {
         </ul>
       </div>
 
-      <!-- To Be Selection -->
+      
       <h2>📋 To Be dalam Present Continuous</h2>
       <p>Sama seperti Non-Verb, to be dipilih berdasarkan subject:</p>
       <table class="compare-table">
@@ -2424,7 +2345,7 @@ body {
         <tr><td>You / We / They</td><td>are</td><td>They <strong>are</strong> playing football.</td></tr>
       </table>
 
-      <!-- Kenapa Verb-ing -->
+      
       <h2>❓ Kenapa Menggunakan Verb-ing?</h2>
       <div class="why-box">
         <div class="title">🤔 Penjelasan Mendalam</div>
@@ -2444,7 +2365,7 @@ body {
         <p>✅ I <strong>am</strong> studying. → Benar.</p>
       </div>
 
-      <!-- Contoh -->
+      
       <h2>💡 Contoh Kalimat</h2>
 
       <div class="example-box">
@@ -2471,7 +2392,7 @@ body {
         <div class="note">✅ The baby (It) + is + sleeping</div>
       </div>
 
-      <!-- Aturan penambahan -ing -->
+      
       <h2>➕ Aturan Penambahan -ING</h2>
       <table class="compare-table">
         <tr><th>Aturan</th><th>Contoh</th><th>Hasil</th></tr>
@@ -2481,7 +2402,7 @@ body {
         <tr><td>Berakhiran -ie: ubah -ie jadi -y</td><td>die, lie</td><td>d<strong>ying</strong>, l<strong>ying</strong></td></tr>
       </table>
 
-      <!-- Negatif & Tanya -->
+      
       <h2>❌ Negatif & ❓ Tanya</h2>
       <table class="compare-table">
         <tr><th>Jenis</th><th>Contoh</th></tr>
@@ -2490,7 +2411,7 @@ body {
         <tr><td>Tanya</td><td><strong>Is</strong> she <strong>studying</strong>?</td></tr>
       </table>
 
-      <!-- Time signals -->
+      
       <h2>⏰ Tanda Waktu</h2>
       <div class="flex flex-wrap gap-8">
         <span class="tag">now</span>
@@ -2503,7 +2424,7 @@ body {
         <span class="tag">Listen!</span>
       </div>
 
-      <!-- Flow Diagram -->
+      
       <h2>📊 Diagram Alur: Membuat Present Continuous</h2>
       <div class="timeline">
         <div class="timeline-item">
@@ -2536,9 +2457,7 @@ body {
     </div>
   </div>
 
-  <!-- ============================================================
-       PERBEDAAN TENSE
-       ============================================================ -->
+  
   <div class="page" id="page-perbedaan-tense">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -2552,7 +2471,7 @@ body {
         Memahami perbedaan antar tense sangat penting agar kamu bisa menggunakan tense yang tepat.
       </p>
 
-      <!-- Simple Present vs Present Continuous -->
+      
       <h2>📝 Simple Present VS Present Continuous</h2>
       
       <div class="info-box yellow">
@@ -2622,7 +2541,7 @@ body {
 
       <h2>🔍 Penjelasan Satu Per Satu</h2>
 
-      <!-- Perbedaan 1 -->
+      
       <div class="card">
         <h3>⚽ Contoh 1: Football</h3>
         <div class="example-box">
@@ -2637,7 +2556,7 @@ body {
         </div>
       </div>
 
-      <!-- Perbedaan 2 -->
+      
       <div class="card">
         <h3>📚 Contoh 2: Books</h3>
         <div class="example-box">
@@ -2652,7 +2571,7 @@ body {
         </div>
       </div>
 
-      <!-- Perbedaan 3 -->
+      
       <div class="card">
         <h3>🍚 Contoh 3: Lunch</h3>
         <div class="example-box">
@@ -2667,7 +2586,7 @@ body {
         </div>
       </div>
 
-      <!-- Perbedaan 4 - Fakta -->
+      
       <div class="card">
         <h3>☀️ Contoh 4: Fakta (Hanya Simple Present)</h3>
         <div class="example-box">
@@ -2681,7 +2600,7 @@ body {
         </div>
       </div>
 
-      <!-- Perbedaan 5 - Air mendidih -->
+      
       <div class="card">
         <h3>💧 Contoh 5: Air Mendidih</h3>
         <div class="example-box">
@@ -2696,7 +2615,7 @@ body {
         </div>
       </div>
 
-      <!-- Ringkasan -->
+      
       <h2>📊 Ringkasan Perbedaan</h2>
       <table class="compare-table">
         <tr><th>Aspek</th><th>Simple Present</th><th>Present Continuous</th></tr>
@@ -2715,9 +2634,7 @@ body {
     </div>
   </div>
 
-  <!-- ============================================================
-       IRREGULAR VERB - DAFTAR LENGKAP
-       ============================================================ -->
+  
   <div class="page" id="page-irregular-verb">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -2742,7 +2659,7 @@ body {
       </div>
     </div>
 
-    <!-- Search & Filter -->
+    
     <div class="card">
       <div class="search-box">
         <span class="search-icon">🔍</span>
@@ -2776,16 +2693,14 @@ body {
             </tr>
           </thead>
           <tbody id="verbTableBody">
-            <!-- Generated by JavaScript -->
+            
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <!-- ============================================================
-       FLASHCARD PAGE
-       ============================================================ -->
+  
   <div class="page" id="page-flashcard">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -2829,9 +2744,7 @@ body {
     </div>
   </div>
 
-  <!-- ============================================================
-       MODE HAFALAN
-       ============================================================ -->
+  
   <div class="page" id="page-hafalan">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -2871,9 +2784,7 @@ body {
     </div>
   </div>
 
-  <!-- ============================================================
-       TEBAK ARTI
-       ============================================================ -->
+  
   <div class="page" id="page-tebak-arti">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -2908,9 +2819,7 @@ body {
     </div>
   </div>
 
-  <!-- ============================================================
-       TEBAK V1
-       ============================================================ -->
+  
   <div class="page" id="page-tebak-v1">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -2945,9 +2854,7 @@ body {
     </div>
   </div>
 
-  <!-- ============================================================
-       QUIZ CENTER
-       ============================================================ -->
+  
   <div class="page" id="page-quiz">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -2957,7 +2864,7 @@ body {
     <h1 style="font-size:28px; font-weight:700; margin-bottom:8px;">🧠 Quiz Center</h1>
     <p style="color:var(--text-secondary); margin-bottom:20px;">Pilih kategori, level, dan jenis soal untuk memulai quiz.</p>
 
-    <!-- Quiz Settings -->
+    
     <div id="quizSettings">
       <div class="grid-3 mb-24">
         <div class="card">
@@ -3004,7 +2911,7 @@ body {
       </div>
     </div>
 
-    <!-- Quiz Questions -->
+    
     <div id="quizArea" class="hidden">
       <div class="flex justify-between items-center mb-24">
         <div>
@@ -3022,13 +2929,11 @@ body {
       </div>
     </div>
 
-    <!-- Quiz Results -->
+    
     <div id="quizResults" class="hidden"></div>
   </div>
 
-  <!-- ============================================================
-       WRITING MODE
-       ============================================================ -->
+  
   <div class="page" id="page-writing">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -3071,7 +2976,7 @@ body {
         </div>
       </div>
 
-      <!-- Writing Score -->
+      
       <div id="writingScoreCard" class="hidden">
         <div class="card">
           <h3 style="font-size:18px; font-weight:600; margin-bottom:16px;">📊 Skor Writing</h3>
@@ -3082,9 +2987,7 @@ body {
     </div>
   </div>
 
-  <!-- ============================================================
-       SIMULASI ULANGAN
-       ============================================================ -->
+  
   <div class="page" id="page-simulasi">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -3096,7 +2999,7 @@ body {
       Rasakan pengalaman ulangan sungguhan! 30 soal, 45 menit, semua materi.
     </p>
 
-    <!-- Simulasi Start -->
+    
     <div id="simulasiStart">
       <div class="card text-center" style="max-width:600px; margin:0 auto;">
         <div style="font-size:64px; margin-bottom:16px;">🎓</div>
@@ -3116,7 +3019,7 @@ body {
       </div>
     </div>
 
-    <!-- Simulasi Area -->
+    
     <div id="simulasiArea" class="hidden">
       <div class="flex justify-between items-center mb-24" style="position:sticky; top:calc(var(--header-height) + 8px); z-index:50; background:var(--bg); padding:8px 0;">
         <div class="font-bold">Soal <span id="simulasiProgress">1</span>/30</div>
@@ -3131,13 +3034,11 @@ body {
       </div>
     </div>
 
-    <!-- Simulasi Results -->
+    
     <div id="simulasiResults" class="hidden"></div>
   </div>
 
-  <!-- ============================================================
-       PROGRESS PAGE
-       ============================================================ -->
+  
   <div class="page" id="page-progress">
     <div class="breadcrumb">
       <a onclick="showPage('dashboard')">🏠 Home</a> <span>›</span>
@@ -3147,48 +3048,46 @@ body {
     <h1 style="font-size:28px; font-weight:700; margin-bottom:8px;">📊 Statistik & Progress</h1>
     <p style="color:var(--text-secondary); margin-bottom:20px;">Pantau perkembangan belajarmu di sini.</p>
 
-    <!-- Stats Overview -->
+    
     <div class="grid-4 mb-24" id="progressStats">
-      <!-- Filled by JS -->
+      
     </div>
 
-    <!-- Materi Progress -->
+    
     <div class="card mb-24">
       <h3 style="font-size:18px; font-weight:600; margin-bottom:16px;">📖 Progress Materi</h3>
       <div id="progressMateri"></div>
     </div>
 
-    <!-- Irregular Verb Progress -->
+    
     <div class="card mb-24">
       <h3 style="font-size:18px; font-weight:600; margin-bottom:16px;">📚 Progress Irregular Verb</h3>
       <div id="progressVerbs"></div>
     </div>
 
-    <!-- Quiz Progress -->
+    
     <div class="card mb-24">
       <h3 style="font-size:18px; font-weight:600; margin-bottom:16px;">🧠 Riwayat Quiz</h3>
       <div id="progressQuiz"></div>
     </div>
 
-    <!-- Badges -->
+    
     <div class="card mb-24">
       <h3 style="font-size:18px; font-weight:600; margin-bottom:16px;">🏆 Badge & Pencapaian</h3>
       <div id="progressBadges"></div>
     </div>
 
-    <!-- Reset -->
+    
     <div class="text-center mt-24">
       <button class="btn btn-sm btn-red" onclick="resetAllProgress()">🗑️ Reset Semua Progress</button>
     </div>
   </div>
 
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
+  
   <footer class="site-footer">
     <div class="footer-content">
       <a class="footer-logo" href="#" onclick="showPage('dashboard')">
-        <div class="logo-icon">📘</div>
+        <img class="logo-icon" src="EnglishPRO.png" alt="EnglishPro">
         <span>EnglishPro</span>
       </a>
 
@@ -3220,18 +3119,14 @@ body {
 
 </main>
 
-<!-- ============================================================
-     TOAST NOTIFICATION
-     ============================================================ -->
+
 <div class="toast" id="toast"></div>
 
-<!-- ============================================================
-     JAVASCRIPT
-     ============================================================ -->
+
 <script>
-// ================================================================
-// IRREGULAR VERBS DATA (52 words from photo)
-// ================================================================
+
+
+
 const irregularVerbs = [
   { no:1, v1:"be", v2:"was/were", v3:"been", arti:"adalah" },
   { no:2, v1:"beat", v2:"beat", v3:"beaten", arti:"mengalahkan" },
@@ -3287,11 +3182,11 @@ const irregularVerbs = [
   { no:52, v1:"see", v2:"saw", v3:"seen", arti:"melihat" }
 ];
 
-// ================================================================
-// QUIZ QUESTIONS DATABASE
-// ================================================================
+
+
+
 const quizDatabase = {
-  // SIMPLE PRESENT (Verb)
+  
   "simple-present": {
     easy: [
       { type:"mc", question:"She ___ rice every day.", options:["eat","eats","eating","ate"], answer:1, explanation:"Subject 'She' (he/she/it) memerlukan verb + s. Jadi 'eat' menjadi 'eats'.\n\nA salah: 'eat' tanpa -s untuk She.\nB benar: She + eats → Simple Present, orang ketiga tunggal.\nC salah: 'eating' adalah bentuk Present Continuous.\nD salah: 'ate' adalah Past Tense." },
@@ -3306,14 +3201,14 @@ const quizDatabase = {
       { type:"fill", question:"She ___ (watch) TV every night.", answer:"watches", explanation:"'She' → orang ketiga tunggal → verb + es (karena berakhiran -ch).\nShe watches TV every night." }
     ],
     medium: [
-      { type:"arrange", words:["always","My sister","early","wakes up"], answer:"My sister always wakes up early", explanation:"Susunan yang benar: My sister always wakes up early.\n\nSubject (My sister) + Adverb (always) + Verb (wakes up) + Adverb (early).\n'wakes up' menggunakan -s karena 'My sister' = She." },
-      { type:"mc", question:"The birds ___ in the sky.", options:["flys","flies","flyying","flyes"], answer:1, explanation:"'The birds' = They (jamak) → tapi soal ini mengecek aturan perubahan y→ies.\n\nWait, 'birds' = They, seharusnya 'fly'. Namun soal ini tentang penulisan yang benar.\n\nA salah: penulisan salah.\nB benar: 'fly' untuk They = 'fly' (tanpa perubahan). Tapi untuk She: fly → flies.\nC salah: penulisan salah.\nD salah: penulisan salah.\n\nJawaban: B (flies) untuk He/She/It, fly untuk They." },
+      { type:"arrange", question:"Susun kata-kata berikut menjadi kalimat Simple Present yang benar:", words:["always","My sister","early","wakes up"], answer:"My sister always wakes up early", explanation:"Susunan yang benar: My sister always wakes up early.\n\nSubject (My sister) + Adverb (always) + Verb (wakes up) + Adverb (early).\n'wakes up' menggunakan -s karena 'My sister' = She." },
+      { type:"mc", question:"The bird ___ in the sky.", options:["flys","flies","flyying","flyes"], answer:1, explanation:"'The bird' = It (orang ketiga tunggal), jadi verb harus mendapat tambahan.\n\n'fly' berakhiran konsonan + y, sehingga y berubah menjadi 'ies': fly → flies.\n\nA salah: 'flys' penulisan tidak benar.\nB benar: fly → flies.\nC salah: 'flyying' penulisan tidak benar.\nD salah: 'flyes' penulisan tidak benar." },
       { type:"essay", question:"Buatlah 3 kalimat Simple Present Tense:\n1. Kalimat positif\n2. Kalimat negatif\n3. Kalimat tanya", sampleAnswer:"1. She reads a book every day.\n2. She does not read a book every day.\n3. Does she read a book every day?", checkKeywords:["reads","does not","Does"], explanation:"Pastikan:\n- Positif: Subject + V1 (+s/es)\n- Negatif: Subject + do/does + not + V1\n- Tanya: Do/Does + Subject + V1?" },
       { type:"mc", question:"Which sentence is INCORRECT?", options:["He plays guitar well.","She don't like coffee.","The sun rises in the east.","I go to school every day."], answer:1, explanation:"B SALAH! 'She' = he/she/it, jadi negatifnya 'does not / doesn't', bukan 'don't'.\n\nBenar: She doesn't like coffee.\n\nA benar: He + plays (+s untuk orang ketiga tunggal).\nC benar: Fakta umum, Simple Present.\nD benar: I + go (verb dasar)." },
-      { type:"fill", question:"My brother ___ not ___ (like) spicy food.", answer:["does","like"], explanation:"Negatif Simple Present untuk He/She/It:\nSubject + does + not + V1 (tanpa -s!)\n\nMy brother does not like spicy food.\n\nPerhatian: setelah 'does not', verb kembali ke bentuk dasar!" },
+      { type:"fill", question:"My brother ___ not ___ (like) spicy food.", answer:["does not like","doesn't like"], explanation:"Negatif Simple Present untuk He/She/It:\nSubject + does + not + V1 (tanpa -s!)\n\nMy brother does not like spicy food.\n\nPerhatian: setelah 'does not', verb kembali ke bentuk dasar!" },
       { type:"tf", question:"Kalimat 'Does she goes to school?' benar.", answer:false, explanation:"SALAH! Setelah 'does', verb harus kembali ke bentuk dasar (tanpa -s).\n\nBenar: Does she go to school?\nSalah: Does she goes to school?" },
       { type:"mc", question:"'Study' berubah menjadi... untuk subject 'He'.", options:["studys","studyes","studies","studying"], answer:2, explanation:"Aturan konsonan + y → ies:\n'study' → 'studies' (y berubah menjadi ies).\n\nA salah: -y + s bukan studys.\nB salah: bukan studyes.\nC benar: studi + es = studies.\nD salah: studying adalah Present Continuous." },
-      { type:"arrange", words:["not","does","the boy","like","ice cream"], answer:"The boy does not like ice cream", explanation:"Susunan negatif: Subject + does + not + V1\nThe boy does not like ice cream.\n'like' tetap bentuk dasar setelah 'does not'." },
+      { type:"arrange", question:"Susun kata-kata berikut menjadi kalimat negatif yang benar:", words:["not","does","the boy","like","ice cream"], answer:"The boy does not like ice cream", explanation:"Susunan negatif: Subject + does + not + V1\nThe boy does not like ice cream.\n'like' tetap bentuk dasar setelah 'does not'." },
       { type:"mc", question:"Time signal yang TEPAT untuk Simple Present adalah...", options:["now","right now","every day","at the moment"], answer:2, explanation:"'every day' adalah time signal Simple Present (menunjukkan rutinitas).\n\nA, B, D: 'now', 'right now', 'at the moment' adalah time signal Present Continuous." },
       { type:"essay", question:"Jelaskan perbedaan antara 'He eats' dan 'He eat'. Mana yang benar? Mengapa?", sampleAnswer:"'He eats' yang benar. Karena 'He' adalah subject orang ketiga tunggal (third person singular), sehingga verb harus ditambah -s. 'He eat' salah karena tidak ada penambahan -s pada verb.", checkKeywords:["eats","ketiga tunggal","-s"], explanation:"He/She/It = orang ketiga tunggal → verb + s/es. Ini aturan dasar Simple Present Tense." }
     ],
@@ -3322,12 +3217,12 @@ const quizDatabase = {
       { type:"mc", question:"Identifikasi kesalahan: 'She don't goes to school and he doesn't play football.'", options:["don't goes → doesn't go","play → plays","Tidak ada kesalahan","Semua salah"], answer:0, explanation:"Kesalahan ada di bagian 'She don't goes':\n1. 'don't' → harusnya 'doesn't' (untuk She)\n2. 'goes' → harusnya 'go' (setelah doesn't, verb kembali ke dasar)\n\nBenar: She doesn't go to school and he doesn't play football." },
       { type:"mc", question:"'The information ___ very important.' Kata yang tepat adalah...", options:["are","is","am","be"], answer:1, explanation:"'Information' adalah kata benda tidak terhitung (uncountable noun) → dianggap tunggal → menggunakan 'is'.\n\nJangan tertipu: 'information' bukan jamak!" },
       { type:"essay", question:"Mengapa kalimat 'The sun rise in the east' salah? Koreksi dan jelaskan!", sampleAnswer:"Kalimat 'The sun rise in the east' salah karena 'The sun' = It (orang ketiga tunggal), sehingga 'rise' harus ditambah -s menjadi 'rises'.\n\nBenar: The sun rises in the east.", checkKeywords:["rises","It","ketiga tunggal","-s"], explanation:"'The sun' = It → third person singular → verb + s." },
-      { type:"arrange", words:["hard","every day","my father","works","very"], answer:"My father works very hard every day", explanation:"S + V + adverb: My father works very hard every day.\n'works' (+s) karena 'My father' = He." },
+      { type:"arrange", question:"Susun kata-kata berikut menjadi kalimat yang benar:", words:["hard","every day","my father","works","very"], answer:"My father works very hard every day", explanation:"S + V + adverb: My father works very hard every day.\n'works' (+s) karena 'My father' = He." },
       { type:"fill", question:"Neither the teacher nor the students ___ (be) in the classroom.", answer:["are","is"], explanation:"Dengan 'neither...nor', verb mengikuti subject terdekat (students = they) → 'are'.\nNamun dalam beberapa konteks informal, 'is' juga sering digunakan." },
       { type:"mc", question:"Kalimat 'I am study English' salah karena...", options:["gunakan 'studying' setelah am","gunakan 'studies' setelah am","langsung 'study' tanpa am","gunakan 'studied'"], answer:2, explanation:"Untuk Simple Present (Verb), tidak perlu To Be!\n\nBenar: I study English. (Simple Present)\nAtau: I am studying English. (Present Continuous)\n\nKalau pakai am, harus V-ing. Kalau pakai verb, tidak perlu am." }
     ]
   },
-  // NON VERB
+  
   "non-verb": {
     easy: [
       { type:"mc", question:"I ___ happy.", options:["am","is","are","be"], answer:0, explanation:"Subject 'I' selalu menggunakan 'am'.\n\nA benar: I am.\nB salah: 'is' untuk He/She/It.\nC salah: 'are' untuk You/We/They.\nD salah: 'be' bukan bentuk yang benar." },
@@ -3343,7 +3238,7 @@ const quizDatabase = {
     ],
     medium: [
       { type:"mc", question:"Kalimat yang TIDAK memerlukan to be adalah...", options:["She is a doctor.","He plays guitar.","I am tired.","They are happy."], answer:1, explanation:"'He plays guitar' menggunakan verb (plays), bukan to be.\n\nA, C, D semua memerlukan to be karena menyatakan keadaan/identitas." },
-      { type:"arrange", words:["teacher","a","she","is"], answer:"She is a teacher", explanation:"Susunan: Subject + To Be + Noun\nShe is a teacher." },
+      { type:"arrange", question:"Susun kata-kata berikut menjadi kalimat yang benar:", words:["teacher","a","she","is"], answer:"She is a teacher", explanation:"Susunan: Subject + To Be + Noun\nShe is a teacher." },
       { type:"essay", question:"Jelaskan kapan kita menggunakan To Be (am/is/are) dan kapan menggunakan Verb dalam Simple Present Tense.", sampleAnswer:"To Be digunakan untuk menyatakan keadaan, identitas, ciri-ciri, atau lokasi. Contoh: I am happy, She is a doctor, They are at school.\n\nVerb digunakan untuk menyatakan aksi/kegiatan. Contoh: I eat rice, She reads a book.", checkKeywords:["keadaan","aksi","kegiatan","identitas"], explanation:"To Be = keadaan/non-aksi\nVerb = aksi/kegiatan" },
       { type:"mc", question:"Singkatan dari 'They are' adalah...", options:["They's","They're","Theyr","The'are"], answer:1, explanation:"'They are' → 'They're'.\nIni adalah singkatan resmi dalam bahasa Inggris." },
       { type:"fill", question:"I ___ not (not) a student.", answer:["am"], explanation:"Negatif I: I am not...\nI am not a student." },
@@ -3355,22 +3250,22 @@ const quizDatabase = {
       { type:"mc", question:"Mengapa 'I are happy' salah?", options:["Karena 'are' untuk You/We/They","Karena 'happy' salah","Karena tidak ada objek","Karena harus pakai verb"], answer:0, explanation:"'I' khusus menggunakan 'am'.\n'are' digunakan untuk You/We/They.\n\nBenar: I am happy." }
     ]
   },
-  // PRESENT CONTINUOUS
+  
   "present-continuous": {
     easy: [
       { type:"mc", question:"I ___ (study) English now.", options:["study","studies","am studying","studied"], answer:2, explanation:"'now' → Present Continuous: Subject + To Be + V-ing.\n\nI am studying English now.\n\nA salah: Simple Present.\nB salah: Simple Present untuk He/She/It.\nC benar: Present Continuous.\nD salah: Past Tense." },
       { type:"mc", question:"She ___ (cook) in the kitchen.", options:["cook","cooks","is cooking","cooked"], answer:2, explanation:"Present Continuous: She + is + cooking.\n\nShe is cooking in the kitchen." },
-      { type:"fill", question:"They ___ (play) football at the moment.", answer:["are playing","are play"], explanation:"Present Continuous: They + are + playing.\n\nThey are playing football at the moment." },
+      { type:"fill", question:"They ___ (play) football at the moment.", answer:["are playing"], explanation:"Present Continuous: They + are + playing.\n\nThey are playing football at the moment." },
       { type:"tf", question:"Kalimat 'I am play football.' benar.", answer:false, explanation:"SALAH! Setelah to be harus ada verb-ing.\n\nBenar: I am playing football." },
       { type:"mc", question:"Rumus Present Continuous Tense adalah...", options:["Subject + V1","Subject + V1 + s/es","Subject + To Be + V-ing","Subject + V2"], answer:2, explanation:"Present Continuous = Subject + To Be (am/is/are) + V-ing.\n\nA: Simple Present (untuk I/You/We/They).\nB: Simple Present (untuk He/She/It).\nC: Present Continuous ✓\nD: Past Tense." },
-      { type:"fill", question:"The baby ___ (sleep) right now.", answer:["is sleeping","is sleep"], explanation:"'The baby' = It → is + sleeping.\nThe baby is sleeping right now." },
+      { type:"fill", question:"The baby ___ (sleep) right now.", answer:["is sleeping"], explanation:"'The baby' = It → is + sleeping.\nThe baby is sleeping right now." },
       { type:"mc", question:"Time signal yang tepat untuk Present Continuous adalah...", options:["every day","always","now","usually"], answer:2, explanation:"'now' menunjukkan kejadian sedang berlangsung → Present Continuous.\n\nA, B, D: time signal Simple Present." },
-      { type:"fill", question:"We ___ (watch) a movie now.", answer:["are watching","are watch"], explanation:"We + are + watching.\nWe are watching a movie now." },
+      { type:"fill", question:"We ___ (watch) a movie now.", answer:["are watching"], explanation:"We + are + watching.\nWe are watching a movie now." },
       { type:"mc", question:"Kenapa menggunakan verb-ing?", options:["Menunjukkan kejadian sedang berlangsung","Menunjukkan kejadian di masa lalu","Menunjukkan kebiasaan","Menunjukkan fakta"], answer:0, explanation:"Verb-ing menunjukkan aksi sedang terjadi (in progress) saat ini." },
       { type:"tf", question:"'He is always complaining.' adalah Present Continuous.", answer:true, explanation:"BENAR! Ini Present Continuous yang digunakan untuk kejadian berulang yang mengganggu (annoying habit).\n\n'always' di sini menunjukkan kebiasaan yang diulang-ulang dan biasanya mengganggu." }
     ],
     medium: [
-      { type:"arrange", words:["right now","She","studying","is"], answer:"She is studying right now", explanation:"Susunan: Subject + To Be + V-ing + Time Signal\nShe is studying right now." },
+      { type:"arrange", question:"Susun kata-kata berikut menjadi kalimat Present Continuous yang benar:", words:["right now","She","studying","is"], answer:"She is studying right now", explanation:"Susunan: Subject + To Be + V-ing + Time Signal\nShe is studying right now." },
       { type:"mc", question:"Bentuk -ing dari 'make' adalah...", options:["makeing","making","makeeing","makening"], answer:1, explanation:"Aturan: verb berakhiran -e → hapus -e, tambah -ing.\nmake → mak(e) + ing = making." },
       { type:"mc", question:"Bentuk -ing dari 'run' adalah...", options:["runing","running","runeing","running"], answer:1, explanation:"Aturan: verb berakhiran 1 konsonan sebelum vokal pendek → dobel konsonan + ing.\nrun → runn + ing = running." },
       { type:"essay", question:"Buatlah 3 kalimat Present Continuous yang menunjukkan kejadian sedang berlangsung.", sampleAnswer:"1. I am reading a book right now.\n2. She is cooking dinner at the moment.\n3. They are playing in the park now.", checkKeywords:["am","is","are","-ing","now"], explanation:"Pastikan setiap kalimat: To Be + V-ing + time signal (now/right now/at the moment)." },
@@ -3383,7 +3278,7 @@ const quizDatabase = {
       { type:"mc", question:"'She is always losing her keys.' Makna kalimat ini adalah...", options:["Dia selalu kehilangan kuncinya (kebiasaan mengganggu)","Dia sedang mencari kunci","Dia akan kehilangan kunci","Dia pernah kehilangan kunci"], answer:0, explanation:"Present Continuous + 'always' = kebiasaan yang berulang dan biasanya mengganggu/emosional.\n\nIni bukan sedang terjadi sekarang, tapi menunjukkan kekesalan karena berulang." }
     ]
   },
-  // IRREGULAR VERB
+  
   "irregular": {
     easy: [
       { type:"mc", question:"V2 (Past Tense) dari 'go' adalah...", options:["goed","went","gone","going"], answer:1, explanation:"'go' adalah irregular verb:\nV1: go\nV2: went\nV3: gone\n\nA salah: 'goed' bukan bahasa Inggris.\nB benar: went.\nC salah: 'gone' adalah V3.\nD salah: 'going' adalah bentuk -ing." },
@@ -3399,7 +3294,7 @@ const quizDatabase = {
     ],
     medium: [
       { type:"mc", question:"Manakah yang benar: 'She has ___ the book.' (V3 dari read)", options:["read","readed","red","reading"], answer:0, explanation:"read → read → read (V1, V2, V3 sama, tapi pengucapannya berbeda!)\n\nShe has read the book. (read di sini dibaca /red/)" },
-      { type:"arrange", words:["yesterday","the movie","she","watched"], answer:"She watched the movie yesterday", explanation:"Catatan: 'watch' regular verb (bukan irregular), jadi Past Tense = watched.\nShe watched the movie yesterday." },
+      { type:"arrange", question:"Susun kata-kata berikut menjadi kalimat yang benar:", words:["yesterday","the movie","she","watched"], answer:"She watched the movie yesterday", explanation:"Catatan: 'watch' regular verb (bukan irregular), jadi Past Tense = watched.\nShe watched the movie yesterday." },
       { type:"essay", question:"Tuliskan V1, V2, V3 dari 5 irregular verb pilihanmu dan buatlah kalimat menggunakan V2-nya.", sampleAnswer:"1. go → went → gone: I went to school yesterday.\n2. eat → ate → eaten: She ate breakfast this morning.\n3. see → saw → seen: We saw a movie last night.\n4. buy → bought → bought: He bought a new book.\n5. come → came → come: They came to my house.", checkKeywords:["went","ate","saw","bought","came"], explanation:"Pastikan menggunakan V2 dalam kalimat Past Tense." },
       { type:"mc", question:"V3 dari 'give' adalah...", options:["gave","given","gived","giving"], answer:1, explanation:"give → gave → given\nV3: given ✓" },
       { type:"fill", question:"V2 dari 'drink' adalah ___", answer:"drank", explanation:"drink → drank → drunk\nV2: drank" },
@@ -3413,9 +3308,9 @@ const quizDatabase = {
   }
 };
 
-// ================================================================
-// WRITING PROMPTS
-// ================================================================
+
+
+
 const writingPrompts = [
   { prompt:"Tulislah sebuah kalimat yang menyatakan kebiasaanmu setiap pagi menggunakan Simple Present Tense.", hint:"Gunakan: I + V1 + ... + every morning", expected:["every morning","I"], difficulty:"easy" },
   { prompt:"Tulislah kalimat yang menggambarkan apa yang sedang kamu lakukan sekarang menggunakan Present Continuous Tense.", hint:"Gunakan: I am + V-ing + now", expected:["am","-ing","now"], difficulty:"easy" },
@@ -3429,17 +3324,17 @@ const writingPrompts = [
   { prompt:"Tulislah 3 kalimat yang menggunakan to be (am, is, are) untuk mendeskripsikan keluargamu.", expected:["am","is","are"], difficulty:"medium" }
 ];
 
-// ================================================================
-// APP STATE & LOCAL STORAGE
-// ================================================================
+
+
+
 let appState = loadState();
 
 function loadState() {
   const defaultState = {
     materiLearned: { 'simple-present': false, 'simple-present-nonverb': false, 'present-continuous': false, 'perbedaan-tense': false },
-    verbLearned: {},   // { verbIndex: true }
-    verbFavorites: {}, // { verbIndex: true }
-    quizHistory: [],   // [{ date, category, level, score, total }]
+    verbLearned: {},   
+    verbFavorites: {}, 
+    quizHistory: [],   
     writingHistory: [],
     simulasiHistory: [],
     bestScore: 0,
@@ -3462,28 +3357,28 @@ function saveState() {
   } catch(e) {}
 }
 
-// ================================================================
-// NAVIGATION & UI
-// ================================================================
+
+
+
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + pageId);
   if (target) target.classList.add('active');
 
-  // Update sidebar active state
+  
   document.querySelectorAll('.sidebar-item').forEach(item => {
     item.classList.remove('active');
     if (item.dataset.page === pageId) item.classList.add('active');
   });
 
-  // Close sidebar on mobile
+  
   document.getElementById('sidebar').classList.remove('open');
   document.querySelector('.sidebar-overlay').classList.remove('show');
 
-  // Scroll to top
+  
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // Init page-specific content
+  
   if (pageId === 'dashboard') updateDashboard();
   if (pageId === 'irregular-verb') renderVerbTable();
   if (pageId === 'flashcard') initFlashcard();
@@ -3492,6 +3387,7 @@ function showPage(pageId) {
   if (pageId === 'tebak-v1') startTebakV1();
   if (pageId === 'writing') initWriting();
   if (pageId === 'progress') updateProgressPage();
+  if (pageId !== 'quiz' && quizTimerInterval) { clearInterval(quizTimerInterval); quizTimerInterval = null; }
 }
 
 function toggleSidebar() {
@@ -3519,9 +3415,9 @@ function showToast(message, type = '') {
   setTimeout(() => toast.className = 'toast', 3000);
 }
 
-// ================================================================
-// MATERI LEARNING
-// ================================================================
+
+
+
 function markMateriLearned(materiId) {
   appState.materiLearned[materiId] = true;
   saveState();
@@ -3529,11 +3425,11 @@ function markMateriLearned(materiId) {
   updateDashboard();
 }
 
-// ================================================================
-// DASHBOARD UPDATE
-// ================================================================
+
+
+
 function updateDashboard() {
-  // Materi progress
+  
   const materiKeys = Object.keys(appState.materiLearned);
   const learnedCount = materiKeys.filter(k => appState.materiLearned[k]).length;
   const materiPercent = Math.round((learnedCount / materiKeys.length) * 100);
@@ -3545,20 +3441,20 @@ function updateDashboard() {
   document.getElementById('prog-pc').style.width = (appState.materiLearned['present-continuous'] ? 100 : 0) + '%';
   document.getElementById('prog-pc-text').textContent = appState.materiLearned['present-continuous'] ? '100%' : '0%';
 
-  // Quiz count
+  
   document.getElementById('stat-quiz').textContent = appState.totalQuizzes;
 
-  // Verbs learned
+  
   const verbsLearned = Object.keys(appState.verbLearned).length;
   document.getElementById('stat-verbs').textContent = verbsLearned + '/52';
 
-  // Best score
+  
   document.getElementById('stat-best').textContent = appState.bestScore > 0 ? appState.bestScore : '-';
 }
 
-// ================================================================
-// IRREGULAR VERB TABLE
-// ================================================================
+
+
+
 let verbCategoryFilter = 'all';
 
 function renderVerbTable() {
@@ -3568,12 +3464,12 @@ function renderVerbTable() {
   let count = 0;
 
   irregularVerbs.forEach((verb, idx) => {
-    // Category filter
+    
     if (verbCategoryFilter === 'learned' && !appState.verbLearned[idx]) return;
     if (verbCategoryFilter === 'unlearned' && appState.verbLearned[idx]) return;
     if (verbCategoryFilter === 'favorite' && !appState.verbFavorites[idx]) return;
 
-    // Search filter
+    
     if (search) {
       const s = search;
       if (!verb.v1.toLowerCase().includes(s) &&
@@ -3631,9 +3527,9 @@ function markAllVerbsLearned() {
   showToast('✅ Semua kata ditandai sudah dipelajari!', 'success');
 }
 
-// ================================================================
-// FLASHCARD
-// ================================================================
+
+
+
 let flashcardIdx = 0;
 let flashcardList = [];
 
@@ -3691,9 +3587,9 @@ function randomFlashcard() {
   updateFlashcard();
 }
 
-// ================================================================
-// MODE HAFALAN
-// ================================================================
+
+
+
 let hafalanIdx = 0;
 let hafalanList = [];
 let hafalanScore = { benar: 0, salah: 0 };
@@ -3775,9 +3671,9 @@ function skipHafalan() {
   updateHafalan();
 }
 
-// ================================================================
-// TEBAK ARTI
-// ================================================================
+
+
+
 let tebakArtiIdx = 0;
 let tebakArtiList = [];
 let tebakArtiScore = { benar: 0, salah: 0 };
@@ -3832,9 +3728,9 @@ function nextTebakArti() {
   updateTebakArti();
 }
 
-// ================================================================
-// TEBAK V1
-// ================================================================
+
+
+
 let tebakV1Idx = 0;
 let tebakV1List = [];
 let tebakV1Score = { benar: 0, salah: 0 };
@@ -3889,9 +3785,9 @@ function nextTebakV1() {
   updateTebakV1();
 }
 
-// ================================================================
-// QUIZ SYSTEM
-// ================================================================
+
+
+
 let quizSettings = { category: 'all', level: 'easy', count: 10 };
 let quizCurrentQuestions = [];
 let quizTimerInterval = null;
@@ -3915,7 +3811,7 @@ function setQuizCount(count, el) {
 }
 
 function startQuiz() {
-  // Gather questions
+  
   let pool = [];
   const cat = quizSettings.category;
   const level = quizSettings.level;
@@ -3933,11 +3829,13 @@ function startQuiz() {
     return;
   }
 
-  // Pick random questions
+  
   pool = shuffle(pool);
   quizCurrentQuestions = pool.slice(0, Math.min(quizSettings.count, pool.length));
+  quizAnswers = {};
+  arrangementState = {};
 
-  // Render
+  
   document.getElementById('quizSettings').classList.add('hidden');
   document.getElementById('quizArea').classList.remove('hidden');
   document.getElementById('quizResults').classList.add('hidden');
@@ -3945,8 +3843,23 @@ function startQuiz() {
 
   renderQuizQuestions('quizQuestions', quizCurrentQuestions, 'quiz');
 
-  // Start timer (no time limit for regular quiz, just display)
-  document.getElementById('quizTimer').textContent = '⏱️ ∞';
+  
+  quizElapsed = 0;
+  if (quizTimerInterval) clearInterval(quizTimerInterval);
+  updateQuizTimer();
+  quizTimerInterval = setInterval(() => { quizElapsed++; updateQuizTimer(); }, 1000);
+}
+
+let quizElapsed = 0;
+
+function updateQuizTimer() {
+  const min = Math.floor(quizElapsed / 60);
+  const sec = quizElapsed % 60;
+  document.getElementById('quizTimer').textContent = `⏱️ ${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+}
+
+function getQuestionText(q) {
+  return (q.question || (q.type === 'arrange' ? 'Susun kata-kata berikut menjadi kalimat yang benar.' : '')).replace(/\n/g, '<br>');
 }
 
 function renderQuizQuestions(containerId, questions, prefix) {
@@ -3958,7 +3871,7 @@ function renderQuizQuestions(containerId, questions, prefix) {
     html += `<div class="question-number">Soal ${idx + 1}`;
     html += ` <span class="qtype-badge ${q.type === 'mc' ? 'mc' : q.type === 'essay' ? 'essay' : q.type === 'fill' ? 'fill' : q.type === 'tf' ? 'tf' : q.type === 'arrange' ? 'arrange' : 'mc'}">${q.type === 'mc' ? 'Pilihan Ganda' : q.type === 'essay' ? 'Essay' : q.type === 'fill' ? 'Isi Titik-titik' : q.type === 'tf' ? 'True/False' : q.type === 'arrange' ? 'Susun Kata' : q.type}</span>`;
     html += `</div>`;
-    html += `<div class="question-text">${q.question.replace(/\n/g, '<br>')}</div>`;
+    html += `<div class="question-text">${getQuestionText(q)}</div>`;
 
     if (q.type === 'mc') {
       html += `<div class="quiz-options">`;
@@ -3972,10 +3885,10 @@ function renderQuizQuestions(containerId, questions, prefix) {
       html += `</div>`;
     } else if (q.type === 'tf') {
       html += `<div class="quiz-options">`;
-      html += `<div class="quiz-option" data-q="${idx}" data-o="true" onclick="selectMCOption(this, '${prefix}')">
+      html += `<div class="quiz-option" data-q="${idx}" data-o="0" onclick="selectMCOption(this, '${prefix}')">
         <div class="option-letter">T</div><div>True (Benar)</div>
       </div>`;
-      html += `<div class="quiz-option" data-q="${idx}" data-o="false" onclick="selectMCOption(this, '${prefix}')">
+      html += `<div class="quiz-option" data-q="${idx}" data-o="1" onclick="selectMCOption(this, '${prefix}')">
         <div class="option-letter">F</div><div>False (Salah)</div>
       </div>`;
       html += `</div>`;
@@ -3984,7 +3897,6 @@ function renderQuizQuestions(containerId, questions, prefix) {
     } else if (q.type === 'essay') {
       html += `<textarea class="essay-input" id="${prefix}-essay-${idx}" rows="4" placeholder="Tulis jawabanmu di sini..."></textarea>`;
     } else if (q.type === 'arrange') {
-      html += `<p class="text-sm mb-8" style="color:var(--text-secondary)">Susun kata-kata berikut menjadi kalimat yang benar:</p>`;
       html += `<div class="drag-container" id="${prefix}-words-${idx}">`;
       const shuffledWords = shuffle([...q.words]);
       shuffledWords.forEach((word, wi) => {
@@ -4016,7 +3928,7 @@ function selectMCOption(el, prefix) {
   else simulasiAnswers[qIdx] = parseInt(oIdx);
 }
 
-// Word chip for arranging
+
 let arrangementState = {};
 
 function toggleWordChip(chip, arrangeId, wordsId) {
@@ -4039,6 +3951,7 @@ function clearArrangement(arrangeId, wordsId) {
 }
 
 function submitQuiz() {
+  if (quizTimerInterval) { clearInterval(quizTimerInterval); quizTimerInterval = null; }
   let correct = 0;
   let total = quizCurrentQuestions.length;
   let explanations = [];
@@ -4086,19 +3999,19 @@ function submitQuiz() {
 
   const score = Math.round((correct / total) * 100);
 
-  // Update state
+  
   appState.totalQuizzes++;
   appState.quizHistory.push({ date: new Date().toISOString(), category: quizSettings.category, level: quizSettings.level, score, total });
   if (score > appState.bestScore) appState.bestScore = score;
   if (score >= 90 && !appState.badges.includes('grammar-master')) appState.badges.push('grammar-master');
   saveState();
 
-  // Show results
+  
   document.getElementById('quizArea').classList.add('hidden');
   document.getElementById('quizResults').classList.remove('hidden');
   renderQuizResults('quizResults', score, correct, total, explanations, quizSettings);
 
-  // Clear state
+  
   quizAnswers = {};
   arrangementState = {};
 }
@@ -4135,7 +4048,7 @@ function renderQuizResults(containerId, score, correct, total, explanations, set
   explanations.forEach(({ q, idx, isCorrect, userAnswer }) => {
     html += `<div class="quiz-question-card" style="border-left:4px solid ${isCorrect ? 'var(--green)' : 'var(--red)'}">`;
     html += `<div class="question-number">Soal ${idx + 1} ${isCorrect ? '✅' : '❌'}</div>`;
-    html += `<div class="question-text">${q.question.replace(/\n/g, '<br>')}</div>`;
+    html += `<div class="question-text">${getQuestionText(q)}</div>`;
     html += `<div style="margin-bottom:8px;"><strong>Jawaban kamu:</strong> <span style="color:${isCorrect ? 'var(--green)' : 'var(--red)'}">${userAnswer}</span></div>`;
 
     if (!isCorrect) {
@@ -4156,9 +4069,9 @@ function renderQuizResults(containerId, score, correct, total, explanations, set
   container.innerHTML = html;
 }
 
-// ================================================================
-// WRITING MODE
-// ================================================================
+
+
+
 let writingIdx = 0;
 let writingScores = [];
 
@@ -4194,30 +4107,30 @@ function checkWriting() {
     return;
   }
 
-  // Score based on criteria
+  
   let grammarScore = 0;
   let verbScore = 0;
   let spellingScore = 0;
   let capitalScore = 0;
   let punctScore = 0;
 
-  // Capital letter check
+  
   if (answer[0] === answer[0].toUpperCase() && answer[0] !== answer[0].toLowerCase()) capitalScore = 100;
   else capitalScore = 30;
 
-  // Punctuation check
+  
   if (answer.endsWith('.') || answer.endsWith('?') || answer.endsWith('!')) punctScore = 100;
   else punctScore = 40;
 
-  // Verb/to be check
+  
   const hasVerbOrToBe = /\b(am|is|are|was|were|do|does|did|have|has|had|will|can|may|shall|would|could|should)\b/i.test(answer) || /\b\w+(s|es|ed|ing)\b/.test(answer);
   verbScore = hasVerbOrToBe ? 85 : 50;
 
-  // Spelling - basic check (length and variety)
+  
   const words = answer.split(/\s+/);
   spellingScore = words.length >= 3 ? 85 : 60;
 
-  // Grammar - check expected keywords
+  
   grammarScore = 70;
   if (prompt.expected) {
     const matchCount = prompt.expected.filter(kw => answer.toLowerCase().includes(kw.toLowerCase())).length;
@@ -4228,7 +4141,7 @@ function checkWriting() {
 
   writingScores.push({ grammarScore, verbScore, spellingScore, capitalScore, punctScore, overall });
 
-  // Show feedback
+  
   const fb = document.getElementById('writingFeedback');
   fb.classList.remove('hidden');
   let fbHtml = `<div class="writing-score">`;
@@ -4239,7 +4152,7 @@ function checkWriting() {
   fbHtml += `<div class="score-item"><div class="score-label">Tanda Baca</div><div class="score-value ${punctScore >= 80 ? 'good' : punctScore >= 60 ? 'warn' : 'bad'}">${punctScore}</div></div>`;
   fbHtml += `</div>`;
 
-  // Detailed feedback
+  
   fbHtml += `<div class="info-box mt-16">`;
   fbHtml += `<strong>📋 Detail Penilaian:</strong><br>`;
   if (capitalScore < 80) fbHtml += `⚠️ Pastikan huruf pertama kapital.<br>`;
@@ -4249,7 +4162,7 @@ function checkWriting() {
   if (grammarScore >= 80 && verbScore >= 80) fbHtml += `✅ Bagus! Grammar dan verb sudah tepat.<br>`;
   fbHtml += `</div>`;
 
-  // Sample answer
+  
   if (prompt.sampleAnswer || prompt.expected) {
     fbHtml += `<div class="info-box green mt-16"><strong>💡 Contoh Jawaban Baik:</strong><br>`;
     fbHtml += prompt.sampleAnswer || prompt.expected.join(', ');
@@ -4301,15 +4214,15 @@ function showWritingResults() {
   showToast(`📊 Rata-rata Writing: ${overallAvg}`);
 }
 
-// ================================================================
-// SIMULASI ULANGAN
-// ================================================================
+
+
+
 let simulasiTimer = null;
-let simulasiTimeLeft = 45 * 60; // 45 minutes
+let simulasiTimeLeft = 45 * 60; 
 let simulasiQuestions = [];
 
 function startSimulasi() {
-  // Generate 30 questions from all categories and levels
+  
   let pool = [];
   Object.keys(quizDatabase).forEach(cat => {
     Object.keys(quizDatabase[cat]).forEach(level => {
@@ -4320,6 +4233,8 @@ function startSimulasi() {
   pool = shuffle(pool);
   simulasiQuestions = pool.slice(0, 30);
   simulasiAnswers = {};
+  arrangementState = {};
+  if (simulasiTimer) clearInterval(simulasiTimer);
 
   document.getElementById('simulasiStart').classList.add('hidden');
   document.getElementById('simulasiArea').classList.remove('hidden');
@@ -4327,7 +4242,7 @@ function startSimulasi() {
 
   renderQuizQuestions('simulasiQuestions', simulasiQuestions, 'simulasi');
 
-  // Start timer
+  
   simulasiTimeLeft = 45 * 60;
   updateSimulasiTimer();
   simulasiTimer = setInterval(() => {
@@ -4397,14 +4312,14 @@ function submitSimulasi() {
 
   const score = Math.round((correct / total) * 100);
 
-  // Update state
+  
   appState.simulasiHistory.push({ date: new Date().toISOString(), score, correct, total, timeUsed: 45 * 60 - simulasiTimeLeft });
   if (score > appState.bestScore) appState.bestScore = score;
   if (score >= 90 && !appState.badges.includes('grammar-master')) appState.badges.push('grammar-master');
   if (score >= 70 && !appState.badges.includes('exam-ready')) appState.badges.push('exam-ready');
   saveState();
 
-  // Show results
+  
   document.getElementById('simulasiArea').classList.add('hidden');
   document.getElementById('simulasiResults').classList.remove('hidden');
 
@@ -4437,7 +4352,7 @@ function submitSimulasi() {
     </div>`;
   }
 
-  // Errors breakdown
+  
   const errors = explanations.filter(e => !e.isCorrect);
   if (errors.length > 0) {
     html += `<div class="card mb-24">
@@ -4445,19 +4360,19 @@ function submitSimulasi() {
     errors.forEach(({ q, idx, userAnswer }) => {
       html += `<div style="padding:12px; background:var(--bg); border-radius:8px; margin-bottom:8px; border-left:3px solid var(--red);">
         <div class="text-sm font-bold">Soal ${idx + 1}</div>
-        <div class="text-sm">${q.question.substring(0, 100)}...</div>
+        <div class="text-sm">${getQuestionText(q).substring(0, 100)}...</div>
         <div class="text-sm text-red">Jawaban kamu: ${userAnswer}</div>
       </div>`;
     });
     html += `</div>`;
   }
 
-  // Full explanations
+  
   html += `<h3 style="font-size:18px; font-weight:600; margin:16px 0;">📝 Pembahasan Lengkap</h3>`;
   explanations.forEach(({ q, idx, isCorrect, userAnswer }) => {
     html += `<div class="quiz-question-card" style="border-left:4px solid ${isCorrect ? 'var(--green)' : 'var(--red)'}">`;
     html += `<div class="question-number">Soal ${idx + 1} ${isCorrect ? '✅' : '❌'}</div>`;
-    html += `<div class="question-text">${q.question.replace(/\n/g, '<br>')}</div>`;
+    html += `<div class="question-text">${getQuestionText(q)}</div>`;
     html += `<div style="margin-bottom:8px;"><strong>Jawaban kamu:</strong> <span style="color:${isCorrect ? 'var(--green)' : 'var(--red)'}">${userAnswer}</span></div>`;
     if (!isCorrect) {
       if (q.type === 'mc') html += `<div style="margin-bottom:8px;"><strong>Jawaban benar:</strong> <span class="text-green">${q.options[q.answer]}</span></div>`;
@@ -4478,11 +4393,11 @@ function submitSimulasi() {
   simulasiAnswers = {};
 }
 
-// ================================================================
-// PROGRESS PAGE
-// ================================================================
+
+
+
 function updateProgressPage() {
-  // Stats
+  
   const statsEl = document.getElementById('progressStats');
   const verbsLearned = Object.keys(appState.verbLearned).length;
   const materiLearned = Object.values(appState.materiLearned).filter(v => v).length;
@@ -4506,7 +4421,7 @@ function updateProgressPage() {
     </div>
   `;
 
-  // Materi Progress
+  
   const materiEl = document.getElementById('progressMateri');
   const materiNames = { 'simple-present': 'Simple Present (Verb)', 'simple-present-nonverb': 'Simple Present (Non Verb)', 'present-continuous': 'Present Continuous', 'perbedaan-tense': 'Perbedaan Tense' };
   let materiHtml = '';
@@ -4520,7 +4435,7 @@ function updateProgressPage() {
   });
   materiEl.innerHTML = materiHtml;
 
-  // Verb Progress
+  
   const verbEl = document.getElementById('progressVerbs');
   const verbPercent = Math.round((verbsLearned / 52) * 100);
   verbEl.innerHTML = `
@@ -4538,7 +4453,7 @@ function updateProgressPage() {
     </div>
   `;
 
-  // Quiz History
+  
   const quizEl = document.getElementById('progressQuiz');
   if (appState.quizHistory.length === 0 && appState.simulasiHistory.length === 0) {
     quizEl.innerHTML = '<p style="color:var(--text-secondary); font-size:14px;">Belum ada riwayat quiz. Mulai quiz sekarang!</p>';
@@ -4559,7 +4474,7 @@ function updateProgressPage() {
     quizEl.innerHTML = quizHtml;
   }
 
-  // Badges
+  
   const badgeEl = document.getElementById('progressBadges');
   const allBadges = [
     { id: 'grammar-master', name: '🏆 Grammar Master', desc: 'Skor quiz ≥ 90' },
@@ -4567,7 +4482,7 @@ function updateProgressPage() {
     { id: 'verb-master', name: '📚 Verb Master', desc: 'Hafal semua 52 irregular verb' }
   ];
 
-  // Auto-check verb master
+  
   if (verbsLearned >= 52 && !appState.badges.includes('verb-master')) {
     appState.badges.push('verb-master');
     saveState();
@@ -4597,9 +4512,9 @@ function resetAllProgress() {
   }
 }
 
-// ================================================================
-// UTILITY FUNCTIONS
-// ================================================================
+
+
+
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -4608,13 +4523,13 @@ function shuffle(arr) {
   return arr;
 }
 
-// ================================================================
-// INITIALIZATION
-// ================================================================
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
   updateDashboard();
   renderVerbTable();
 });
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2556104fad286a5',t:'MTc4NTc2MDcwMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
